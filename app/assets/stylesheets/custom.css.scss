@@ -1,12 +1,22 @@
+.jumbotron{
+  background: image-url("photo-camera.jpg") no-repeat -100px -200px fixed;
+  background-size: cover;
+  height: 500px;
+  position: relative;
+}
+
+.jumbotron h1{
+  position: absolute;
+  right: 50px;
+  bottom: 40%;
+  width: 40%;
+  font-size: 3em !important;
+}
+
 body {
   padding-top: 0px;
-  background: image-url("background.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   font-family: monospace;
-
+  background-color: #E8E2BE !important;
 }
 
 .navbar-brand{
