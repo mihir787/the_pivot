@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+  #Take the cart contents
+  #Pass that to a PORO - returns a hash where keys are store id, values are
+  # checkout_name/id: { store1: { photo1 }}
   def create
     order = Order.new(order_params)
     if order.save
