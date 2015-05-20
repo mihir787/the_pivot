@@ -5,10 +5,10 @@ RSpec.describe "User view" do
 
     it 'can view order page' do
       user = create(:default_user)
-      item = create(:item, title: "chips")
+      photo = create(:photo, title: "chips")
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-      visit items_path
+      visit photos_path
       click_link "chips"
       first(:button, "Add To Cart").click
       visit checkout_path
@@ -19,7 +19,7 @@ RSpec.describe "User view" do
       click_button "Order History"
 
       expect(page).to have_content("Orders")
-      visit user_order_path(item.orders.first.id)
+      visit user_order_path(photo.orders.first.id)
       expect(page).to have_content("chips")
       expect(page).to have_content("Order Details")
     end

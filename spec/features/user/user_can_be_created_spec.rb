@@ -16,7 +16,7 @@ RSpec.describe "User view" do
     end
 
 
-    it "cannot be created without name" do 
+    it "cannot be created without name" do
       visit new_user_path
 
       fill_in "Name", with: ""
@@ -26,7 +26,7 @@ RSpec.describe "User view" do
       fill_in "Password confirmation", with: "password"
       click_link_or_button "Create User"
 
-      expect(page).to have_content("Sign Up Name is too short")
+      expect(page).to have_content("Name is too short")
     end
 
     it "can not create user with a taken username" do

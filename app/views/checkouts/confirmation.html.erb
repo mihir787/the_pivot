@@ -2,17 +2,13 @@
   <h2>Confirm Order</h2>
   <table border = 2px >
     <tr>
-      <td>Item</td>
+      <td>Photo</td>
       <td>Price</td>
-      <td>Quantity</td>
-      <td>Subtotal</td>
     </tr>
-  <% @items.each do |item| %>
+  <% @photos.each do |photo| %>
     <tr>
-      <td><%= item.title %></td>
-      <td><%= number_to_currency(item.price.to_f / 100.00) %></td>
-      <td><%= @cart.quantity(item.id.to_s) %></td>
-      <td><%= number_to_currency(@cart.subtotal[item.id].to_f / 100.00) %></td>
+      <td><%= photo.title %></td>
+      <td><%= number_to_currency(photo.price.to_f / 100.00) %></td>
     </tr>
   <% end %>
     <tfoot>

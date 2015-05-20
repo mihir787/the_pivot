@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150519205654) do
+ActiveRecord::Schema.define(version: 20150519211910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,39 +26,15 @@ ActiveRecord::Schema.define(version: 20150519205654) do
 
   add_index "categories", ["slug"], name: "index_categories_on_slug", using: :btree
 
-  create_table "item_categories", force: :cascade do |t|
-    t.integer  "category_id"
-    t.integer  "item_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "item_categories", ["category_id"], name: "index_item_categories_on_category_id", using: :btree
-  add_index "item_categories", ["item_id"], name: "index_item_categories_on_item_id", using: :btree
-
-  create_table "items", force: :cascade do |t|
-    t.string   "title"
-    t.string   "description"
-    t.integer  "price"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.boolean  "status",             default: true
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-  end
-
-  create_table "order_items", force: :cascade do |t|
-    t.integer  "item_id"
+  create_table "order_photos", force: :cascade do |t|
+    t.integer  "photo_id"
     t.integer  "order_id"
-    t.integer  "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "order_items", ["item_id"], name: "index_order_items_on_item_id", using: :btree
-  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id", using: :btree
+  add_index "order_photos", ["order_id"], name: "index_order_photos_on_order_id", using: :btree
+  add_index "order_photos", ["photo_id"], name: "index_order_photos_on_photo_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
@@ -69,6 +45,16 @@ ActiveRecord::Schema.define(version: 20150519205654) do
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
+
+  create_table "photo_categories", force: :cascade do |t|
+    t.integer  "category_id"
+    t.integer  "photo_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "photo_categories", ["category_id"], name: "index_photo_categories_on_category_id", using: :btree
+  add_index "photo_categories", ["photo_id"], name: "index_photo_categories_on_photo_id", using: :btree
 
   create_table "photos", force: :cascade do |t|
     t.string   "title"
@@ -96,9 +82,9 @@ ActiveRecord::Schema.define(version: 20150519205654) do
     t.datetime "picture_updated_at"
   end
 
-  add_foreign_key "item_categories", "categories"
-  add_foreign_key "item_categories", "items"
-  add_foreign_key "order_items", "items"
-  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_photos", "orders"
+  add_foreign_key "order_photos", "photos"
   add_foreign_key "orders", "users"
+  add_foreign_key "photo_categories", "categories"
+  add_foreign_key "photo_categories", "photos"
 end

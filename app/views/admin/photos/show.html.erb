@@ -1,0 +1,13 @@
+<div class="admin_photo_show">
+
+<h2><%= @photo.title %></h2>
+<%= image_tag @photo.image.url(:medium) %>
+<ul>
+  <li><%= @photo.description %></li>
+  <li><%= number_to_currency(@photo.price.to_f / 100.00) %></li>
+  <li><%= link_to "Edit", edit_admin_photo_path(@photo) %></li>
+  <% @photo.categories.each do |category| %>
+  <li><%= category.name %></li>
+  <% end %>
+</ul>
+</div>

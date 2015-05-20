@@ -8,17 +8,14 @@
 
 <table id="first_table">
     <tr>
-      <th>Item</th>
-      <th>Quantity</th>
+      <th>Photo</th>
       <th>Price</th>
       <th>Subtotal</th>
     </tr>
-  <% @order.order_items.each do |order_item| %>
+  <% @order.order_photos.each do |order_photo| %>
     <tr>
-      <td><%= link_to  "#{order_item.item.title}", item_path(order_item.item.id) %></td>
-      <td><%= order_item.quantity %></td>
-      <td><%= number_to_currency(order_item.item.price/100.00) %></td>
-      <td><%= number_to_currency(order_item.subtotal/100.00) %></td>
+      <td><%= link_to  "#{order_photo.photo.title}", photo_path(order_photo.photo.id) %></td>
+      <td><%= number_to_currency(order_photo.photo.price/100.00) %></td>
     </tr>
   <% end %>
   <td>total</td>

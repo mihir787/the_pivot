@@ -2,10 +2,10 @@ class OrdersController < ApplicationController
   def create
     order = Order.new(order_params)
     if order.save
-      @cart.contents.each_pair do |item_id, quantity|
-        order.order_items.create(item_id: item_id.to_i, quantity: quantity)
+      @cart.contents.each_pair do |photo_id, quantity|
+        order.order_photos.create(photo_id: photo_id.to_i, order_id: order.id)
       end
-      order.order_items.create()
+      order.order_photos.create()
       UserNotifier.order_confirmation(Order.find(order.id)).deliver_now
       flash[:notice] = "Order Successfully Placed"
       redirect_to orders_payment_path
@@ -23,6 +23,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:user_id, :subtotal, :item_id)
+    params.require(:order).permit(:user_id, :subtotal, :photo_id)
   end
 end

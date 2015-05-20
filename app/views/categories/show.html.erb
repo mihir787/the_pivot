@@ -1,9 +1,9 @@
 <h1><%= @category.name %></h1>
-<% @category.items.each do |item| %>
-  <div class="item_title">
-  <h3><%= link_to item.title, item_path(item) %></h3>
+<% @category.photos.each do |photo| %>
+  <div class="photo_title">
+  <h3><%= link_to photo.title, photo_path(photo) %></h3>
 </div>
   <div class="description">
-  <%= item.description %>
+  <%= photo.description %>
   </div>
 <% end %>

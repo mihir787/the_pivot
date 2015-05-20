@@ -7,15 +7,15 @@ RSpec.describe "admin page" do
    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
    5.times do |x|
-     create(:item, title: "item#{x}")
+     create(:photo, title: "photo#{x}")
    end
 
-   visit items_path
-   click_link "item1"
+   visit photos_path
+   click_link "photo1"
    first(:button, "Add To Cart").click
 
-   visit items_path
-   click_link "item2"
+   visit photos_path
+   click_link "photo2"
    first(:button, "Add To Cart").click
 
    visit checkout_path

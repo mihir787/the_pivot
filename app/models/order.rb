@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
   belongs_to :user
-  has_many :order_items
-  has_many :items, through: :order_items
+  has_many :order_photos
+  has_many :photos, through: :order_photos
 
   validates :user_id, presence: true
   validates :status, presence: true
