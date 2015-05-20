@@ -1,0 +1,6 @@
+<h1>Welcome to <%= current_store.name %></h1>  
+  <% @photos.each do |photo| %>
+    <h3><%= photo.title %></h3>
+    <p><%= photo.description %></p>
+    <%= image_tag photo.image.url(:thumb) %>
+  <% end %>

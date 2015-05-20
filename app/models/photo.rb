@@ -15,6 +15,7 @@ class Photo < ActiveRecord::Base
   has_many :categories, through: :photo_categories
   has_many :order_photos
   has_many :orders, through: :order_photos
+  belongs_to :store
 
   # scope :active, -> { where(status: true) }
 
