@@ -10,6 +10,7 @@ class Photo < ActiveRecord::Base
   validates :title, presence: true, uniqueness: true
   validates :description, presence: true
   validates :price, presence: true, numericality: { greater_than: 0 }
+  # validates :store_id, presence: true
 
   has_many :photo_categories
   has_many :categories, through: :photo_categories
