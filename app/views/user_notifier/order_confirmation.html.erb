@@ -14,17 +14,14 @@ Hi <%= @order.user.name %>!
 
 <table>
   <tr>
-    <td>Item Name</td>
-    <td>Item Quantity</td>
-    <td>Item Price</td>
-    <td>Item Subtotal</td>
+    <td>Photo Name</td>
+    <td>Photo Price</td>
+    <td>Photo Subtotal</td>
   </tr>
-  <% @order.order_items.each do |order_item| %>
+  <% @order.order_photos.each do |order_photo| %>
   <tr>
-    <td><%= order_item.item.title %></td>
-    <td><%= order_item.quantity %></td>
-    <td><%= number_to_currency(order_item.item.price / 100.00) %></td>
-    <td><%= number_to_currency(order_item.item.price * order_item.quantity / 100.00) %></td>
+    <td><%= order_photo.photo.title %></td>
+    <td><%= number_to_currency(order_photo.photo.price / 100.00) %></td>
   </tr>
   <% end %>
   <tr>

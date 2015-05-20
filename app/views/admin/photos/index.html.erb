@@ -1,0 +1,10 @@
+<div class="index-container">
+<h2>Photos List</h2>
+  <% @photos.each do |photo| %>
+    <div class="col-lg-3 col-md-4 col-sm-6">
+      <%= image_tag photo.image.url(:thumb) %>
+      <h5><%= link_to "Edit", edit_admin_photo_path(photo) %></h5>
+      <h4><%= link_to "#{photo.title}", admin_photo_path(photo) %></h4>
+    </div>
+  <% end %>
+</div>

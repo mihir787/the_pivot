@@ -5,11 +5,11 @@ RSpec.describe "unauthorized user" do
 
     it "can login and checkout" do
       5.times do |x|
-        create(:item, title: "item#{x}")
+        create(:photo, title: "photo#{x}")
       end
 
-      visit items_path
-      click_link "item1"
+      visit photos_path
+      click_link "photo1"
       first(:button, "Add To Cart").click
 
       visit checkout_path
@@ -29,7 +29,7 @@ RSpec.describe "unauthorized user" do
       click_button "Checkout"
 
 
-      expect(page).to have_content("item1")
+      expect(page).to have_content("photo1")
       expect(page).to have_content("Confirm Order")
 
       click_button "Confirm Order"

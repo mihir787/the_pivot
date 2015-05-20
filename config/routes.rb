@@ -9,14 +9,14 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   namespace :admin do
-    resources :items, except: [:destroy]
+    resources :photos, except: [:destroy]
     resources :categories
   end
 
   namespace :user do
     resources :orders, only: [:index, :show]
   end
-  
+
   get "/login/twitter", to: "sessions#twitter"
 
   get '/auth/:provider/callback' => 'sessions#create'
@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   post "checkout/remove", to: "checkouts#remove"
   get "checkout", to: "checkouts#show"
   get 'checkout', to: "checkouts#edit"
-  resources :items, only: [:show, :index]
+  resources :photos, only: [:show, :index]
   resource :user, except: [:update]
   patch "/user", to: "users#update", as: :update_user
   get "login", to: "sessions#new"

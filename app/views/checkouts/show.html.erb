@@ -2,21 +2,15 @@
   <h2>Your Cart</h2>
   <table border = 2px >
     <tr>
-      <td>Item</td>
+      <td>Photo</td>
       <td>Price</td>
-      <td>Quantity</td>
-      <td>+/-</td>
-      <td>Subtotal</td>
       <td>Remove</td>
     </tr>
     <tr>
-  <% @items.each do |item| %>
-      <td><%= item.title %></td>
-      <td><%= number_to_currency(item.price.to_f/100.00) %></td>
-      <td><%= @cart.quantity(item.id.to_s) %></td>
-      <td><%= button_to  "+", checkout_increase_path(item_id: item.id)%><%= button_to  "- ", checkout_decrease_path(item_id: item.id)%></td>
-      <td><%= number_to_currency(@cart.subtotal[item.id].to_f/100.00) %></td>
-      <td><%= button_to "Remove", checkout_remove_path(item_id: item.id)%></td>
+  <% @photos.each do |photo| %>
+      <td><%= photo.title %></td>
+      <td><%= number_to_currency(photo.price.to_f/100.00) %></td>
+      <td><%= button_to "Remove", checkout_remove_path(photo_id: photo.id)%></td>
     </tr>
   <% end %>
     <tfoot>
