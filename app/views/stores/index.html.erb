@@ -1,0 +1,8 @@
+<div class="jumbotron">
+  <h1>View Galleries and Purchase from Real Photographers</h1>
+</div>
+<h1>Browse the Stores</h1>
+<% @stores.each do |store| %>
+  <%= link_to "#{store.name}", store_photos_path(store: store.slug) %>
+  <%= store.name %>
+<% end %>

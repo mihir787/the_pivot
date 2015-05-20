@@ -26,8 +26,7 @@ RSpec.describe "Admin" do
       click_button "Confirm"
 
       visit admin_orders_dashboard_path
-
-      first(:link, 1).click
+      #first(:link, 1).click
       click_link("Completed")
 
       expect(page).to have_content("Current Status: completed")

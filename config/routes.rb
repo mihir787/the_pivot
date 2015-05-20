@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'errors/internal_server_error'
 
   match '/404', to: 'errors#file_not_found', via: :all
-  root to: "home#index"
+  root to: "stores#index"
 
   namespace :admin do
     resources :photos, except: [:destroy]
@@ -45,4 +45,9 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get "admin/dashboard", to: "admin/dashboard#show"
   get "/home", to: "home#index"
+
+  namespace :stores, path: ':store', as: :store do
+    resources :photos,  only: [:index, :show]
+    resources :orders, only: [:index, :show]
+  end
 end
