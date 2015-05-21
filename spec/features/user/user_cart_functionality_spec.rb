@@ -8,8 +8,9 @@ RSpec.describe "checkout" do
       category2 = create(:category2)
       category3 = create(:category3)
 
+      store = Store.create(name: "Super")
       5.times do |x|
-        create(:photo, title: "Photo#{x}", description: "Description #{x}")
+        create(:photo, title: "Photo#{x}", description: "Description #{x}", store_id: store.id)
       end
 
       user = create(:default_user)

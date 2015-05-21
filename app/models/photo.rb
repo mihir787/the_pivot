@@ -2,7 +2,9 @@ class Photo < ActiveRecord::Base
   has_attached_file :image, styles: {micro: '50x50',
                                      thumb: '100x100',
                                      small: '200x200',
-                                     medium: '300x300'
+                                     medium: '300x300',
+                                     large: '500x500',
+                                     display: '1000x1000'
                                    }, default_url: "fork_knife1.jpg"
 
   validates_attachment_content_type :image, content_type: ["image/jpg", "image/jpeg", "image/png"]
@@ -10,7 +12,6 @@ class Photo < ActiveRecord::Base
   validates :title, presence: true, uniqueness: true
   validates :description, presence: true
   validates :price, presence: true, numericality: { greater_than: 0 }
-  # validates :store_id, presence: true
 
   has_many :photo_categories
   has_many :categories, through: :photo_categories

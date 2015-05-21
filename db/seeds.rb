@@ -27,7 +27,7 @@ Category.create(name: "Large Plates", description: "Ginormous plates that will f
 Category.create(name: "Dessert Plates", description: "Sweets, treats but no meats")
 Category.create(name: "Hipster Drinks", description: "Craftsy Cocktails and Beer galore")
 
-store1.photos.create(title: "Give Me a Beat", description: "You will get one beet", price: 2000).categories << Category.find(1)
+store1.photos.create(title: "Give Me a Beat", description: "You will get one beet", price: 2000, image: open('app/assets/images/home2.jpg')).categories << Category.find(1)
 store1.photos.create(title: "Bearded Prawns", description: "Panko crusted - Head On - Deep fried prawns.", price: 2000).categories << Category.find(1)
 store1.photos.create(title: "Oil-Spill Calamari", description: "Served with spicy soy-sauce and squid ink -O- the day.", price: 2000).categories << Category.find(1)
 store1.photos.create(title: "Eggplant Quinoa", description: "'Herb'- crusted eggplant, served with that special sauce", price: 2000).categories << Category.find(1)

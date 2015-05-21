@@ -3,11 +3,13 @@
   <table border = 2px >
     <tr>
       <td>Photo</td>
+      <td>Store</td>
       <td>Price</td>
     </tr>
   <% @photos.each do |photo| %>
     <tr>
       <td><%= photo.title %></td>
+      <td><%= photo.store.name %></td>
       <td><%= number_to_currency(photo.price.to_f / 100.00) %></td>
     </tr>
   <% end %>

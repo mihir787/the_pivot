@@ -3,12 +3,14 @@
   <table border = 2px >
     <tr>
       <td>Photo</td>
+      <td>Store</td>
       <td>Price</td>
       <td>Remove</td>
     </tr>
     <tr>
   <% @photos.each do |photo| %>
       <td><%= photo.title %></td>
+      <td><%= photo.store.name %></td>
       <td><%= number_to_currency(photo.price.to_f/100.00) %></td>
       <td><%= button_to "Remove", checkout_remove_path(photo_id: photo.id)%></td>
     </tr>

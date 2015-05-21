@@ -7,9 +7,9 @@ RSpec.describe "Admin" do
       admin = create(:admin_user)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
-
+      store = Store.create(name: "Super")
       5.times do |x|
-        create(:photo, title: "photo#{x}")
+        create(:photo, title: "photo#{x}", store_id: store.id)
       end
 
       visit photos_path

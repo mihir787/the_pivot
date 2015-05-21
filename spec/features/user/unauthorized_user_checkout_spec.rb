@@ -4,8 +4,9 @@ RSpec.describe "unauthorized user" do
   context "checkout" do
 
     it "can login and checkout" do
+      store = Store.create(name: "Super")
       5.times do |x|
-        create(:photo, title: "photo#{x}")
+        create(:photo, title: "photo#{x}", store_id: store.id)
       end
 
       visit photos_path
