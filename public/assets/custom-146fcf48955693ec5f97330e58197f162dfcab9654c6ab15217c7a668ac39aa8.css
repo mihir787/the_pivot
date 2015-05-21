@@ -1,0 +1,504 @@
+/* line 1, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.jumbotron {
+  background: url(/assets/photo-camera-cropped-5280fac1f23060cc7b3f529440efa30ad1e7a8d5ffd03d3ebf4b6855d95b714e.png) no-repeat center center fixed;
+  background-size: cover;
+  height: 500px;
+  position: relative;
+}
+
+/* line 8, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.jumbotron h1 {
+  position: absolute;
+  right: 50px;
+  bottom: 40%;
+  width: 40%;
+  font-size: 3em !important;
+}
+
+/* line 16, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+body {
+  padding-top: 0px;
+  font-family: monospace;
+  background-color: #E8E2BE !important;
+}
+
+/* line 22, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.navbar-brand {
+  font-family: 'Playfair Display' !important;
+  font-size: 30px !important;
+  color: black;
+}
+
+/* line 28, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+h1 {
+  font-family: 'Playfair Display' !important;
+  color: black;
+}
+
+/* line 33, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.front-page-image {
+  padding-bottom: 10px;
+  text-align: center;
+  vertical-align: center;
+}
+
+/* line 39, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.navbar {
+  background-color: white;
+  background: white;
+  opacity: .8;
+  color: #777;
+  z-index: 10000;
+}
+
+/* line 48, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.navbar li {
+  color: #000;
+}
+
+/* line 52, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.nav.navbar-nav.navbar-right li a {
+  color: #777;
+}
+
+/* line 56, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.nav.navbar-nav.navbar-left li a {
+  color: #777;
+}
+
+/* line 60, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.jumbotron {
+  opacity: .7;
+  background-color: white;
+}
+
+/* line 65, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.jumbotron1 {
+  opacity: .5;
+  background-color: white;
+}
+
+/* line 70, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.carousel {
+  margin: 0 auto 50px;
+  z-index: 2;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+/* line 79, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.carousel-inner > .photo > img,
+.carousel-inner > .photo > a > img {
+  margin: auto;
+  width: 100%;
+}
+
+/* line 85, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+#flash_notice {
+  font-family: monospace;
+  text-style: bold;
+  opacity: .8;
+  text-align: center;
+  margin-right: 60%;
+  padding: 4px;
+  border-radius: 100px;
+  color: #fff8dc;
+  background-color: darkgrey;
+}
+
+/* line 97, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+#flash_errors {
+  font-family: monospace;
+  text-style: bold;
+  opacity: .8;
+  text-align: center;
+  margin-right: 60%;
+  padding: 4px;
+  border-radius: 100px;
+  color: #fff8dc;
+  background-color: darkgrey;
+}
+
+/* line 109, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+#flash_messages {
+  font-family: monospace;
+  text-style: bold;
+  opacity: .8;
+  text-align: center;
+  margin-right: 60%;
+  padding: 4px;
+  border-radius: 100px;
+  color: #fff8dc;
+  background-color: darkgrey;
+}
+
+/* line 120, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+#flash_message {
+  font-family: monospace;
+  text-style: bold;
+  opacity: .8;
+  text-align: center;
+  margin-right: 60%;
+  padding: 4px;
+  border-radius: 100px;
+  color: #fff8dc;
+  background-color: darkgrey;
+}
+
+/* line 131, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+#flash_error {
+  font-family: monospace;
+  text-style: bold;
+  opacity: .8;
+  text-align: center;
+  margin-right: 60%;
+  padding: 4px;
+  border-radius: 100px;
+  color: #fff8dc;
+  background-color: darkgrey;
+}
+
+/* line 143, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+#flash_twitter {
+  font-family: monospace;
+  text-style: bold;
+  opacity: .8;
+  text-align: center;
+  margin-right: 60%;
+  padding: 4px;
+  border-radius: 100px;
+  color: #fff8dc;
+  background-color: red;
+}
+
+/* line 155, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+table td {
+  font-family: monospace;
+  border: 2px solid black;
+  padding: 10px;
+  align: center;
+}
+
+/* line 162, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.admin_orders_list {
+  font-family: monospace;
+  width: 65%;
+  padding: 5px;
+  border: 1px solid;
+  height: 500px;
+  overflow: auto;
+}
+
+/* line 171, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.user-orders-list {
+  font-family: monospace;
+  width: 65%;
+  padding: 5px;
+  border: 1px solid;
+  height: 500px;
+  overflow: auto;
+  margin-left: 18%;
+}
+
+/* line 180, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.center_div {
+  font-family: monospace;
+  padding: 3px;
+  margin-right: 10px;
+}
+
+/* line 186, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.dropdown-menu li:hover .sub-menu {
+  font-family: monospace;
+  visibility: visible;
+}
+
+/* line 191, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.dropdown:hover .dropdown-menu {
+  font-family: monospace;
+  display: block;
+}
+
+/* line 196, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.account {
+  float: left;
+}
+
+/* line 200, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.admin_orders_list h3 {
+  font-family: monospace;
+  text-align: center;
+}
+
+/* line 205, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.dashboard {
+  float: left;
+  margin-left: 5%;
+}
+
+/* line 210, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.index {
+  text-align: center;
+}
+
+/* line 214, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.index {
+  float: left;
+  align: center;
+  list-style: none;
+  margin-left: 37%;
+}
+
+/* line 221, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.container h1 {
+  text-align: center;
+}
+
+/* line 225, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.container h3 {
+  text-align: center;
+}
+
+/* line 230, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.container {
+  font-family: monospace;
+}
+
+/* line 234, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.container .index {
+  text-align: center;
+  float: left;
+  list-style: none;
+  width: 200px;
+}
+
+/* line 241, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.field {
+  align: center;
+  float: left;
+  margin-left: 43%;
+  width: 75%;
+}
+
+/* line 248, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.collection {
+  padding: 3px;
+}
+
+/* line 252, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.submit {
+  align: center;
+  float: left;
+  margin-left: 43%;
+  width: 75%;
+}
+
+/* line 259, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.form {
+  align: center;
+  float: left;
+  margin-left: 43%;
+  width: 75%;
+}
+
+/* line 266, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.order-dashboard-page {
+  align: center;
+  float: left;
+  margin-left: 23%;
+  width: 85%;
+}
+
+/* line 273, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.admin-links p {
+  border: 2px solid black;
+  border-radius: 5px;
+  align: center;
+  margin-left: 25%;
+  margin-right: 25%;
+  text-align: center;
+  padding: 2px;
+}
+
+/* line 283, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.admin-links p:hover {
+  background-color: grey;
+  font-color: white;
+}
+
+/* line 288, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.twitter-login {
+  align: center;
+  margin-left: 25%;
+  margin-right: 25%;
+  text-align: center;
+  padding: 10px;
+}
+
+/* line 296, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.collection {
+  margin-left: -100px;
+  list-style: vertical;
+}
+
+/* line 301, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.filter {
+  padding: 1em;
+}
+/* line 303, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.filter label {
+  font-size: 0.8em;
+}
+/* line 305, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.filter label:after {
+  content: ': ';
+}
+/* line 309, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.filter select, .filter input {
+  margin-right: 1em;
+}
+
+/* line 314, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.index-container img {
+  text-align: center;
+  padding-top: 4px;
+}
+
+/* line 319, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.index-container h4 {
+  min-height: 50px;
+}
+
+/* line 323, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.index-container h2 {
+  text-align: center;
+}
+
+/* line 327, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.description {
+  text-align: center;
+  font-size: 20px;
+}
+
+/* line 332, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.thumbnail {
+  width: 300px;
+  margin-left: 33%;
+  opacity: 0.7;
+  background-color: cornsilk;
+  text-align: center;
+}
+
+/* line 340, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.checkouts-page {
+  margin-left: 25%;
+}
+
+/* line 344, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.checkouts-page h2 {
+  text-align: center;
+  margin-left: -375px;
+}
+
+/* line 349, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.confirmation {
+  margin-left: 25%;
+}
+
+/* line 353, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.confirmation h2 {
+  text-align: center;
+  margin-left: -375px;
+}
+
+/* line 358, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.flashes {
+  margin-left: 35%;
+}
+
+/* line 362, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.user-show {
+  width: 300px;
+  margin-left: 33%;
+  opacity: 0.7;
+  background-color: white;
+  text-align: center;
+}
+
+/* line 370, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.user-order-list {
+  font-family: monospace;
+  width: 45%;
+  padding: 5px;
+  height: 500px;
+  overflow: auto;
+  margin-left: 28%;
+}
+
+/* line 379, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.payment {
+  font-family: monospace;
+  width: 45%;
+  padding: 5px;
+  height: 500px;
+  overflow: auto;
+  margin-left: 28%;
+}
+
+/* line 388, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.admin_status_list h3 {
+  margin-left: -350px;
+}
+
+/* line 392, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.admin_status_list table {
+  margin-left: 210px;
+}
+
+/* line 396, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.filter {
+  margin-left: 180px;
+}
+
+/* line 400, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.display_photos img {
+  max-width: 550px;
+}
+
+/* line 404, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+#footer {
+  background-color: white;
+  background: white;
+  opacity: .8;
+  color: #777;
+  z-index: 10000;
+  margin-top: 20px;
+  height: 50px;
+}
+
+/* line 414, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.footer_text {
+  font-size: 14px;
+  text-align: center;
+}
+
+/* line 419, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.store_home_page ul {
+  list-style: none;
+}
+
+/* line 422, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.store_home_page img {
+  height: 350px;
+}
+
+/* line 426, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.store_info img {
+  width: 200px;
+}
+
+/* line 430, /Users/mihir787/turing/module/the_pivot/app/assets/stylesheets/custom.css.scss */
+.display_image img {
+  max-width: 800px;
+}
