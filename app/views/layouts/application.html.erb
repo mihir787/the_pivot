@@ -11,7 +11,7 @@
 
   <%= render :partial => 'layouts/nav' %>
 
-  <div class="container-fluid">
+  <div class="container-fluid footer-height">
   <div class="flashes">
     <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, :id => "flash_#{name}" %>
@@ -19,7 +19,7 @@
   </div>
 
   <%= yield %>
-    
+
   </div>
 
   <div id="footer">

@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
         order.order_photos.create(photo_id: photo_id.to_i, order_id: order.id)
       end
       order.order_photos.create()
-      # UserNotifier.order_confirmation(Order.find(order.id)).deliver_now
+      UserNotifier.order_confirmation(Order.find(order.id)).deliver_now
       flash[:notice] = "Order Successfully Placed"
       redirect_to orders_payment_path
     else
