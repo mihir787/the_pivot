@@ -5,7 +5,7 @@ RSpec.describe "User view" do
 
     it 'can view order page' do
       user = create(:default_user)
-      photo = create(:photo, title: "chips")
+      photo = create(:photo, title: "chips", store_id: (Store.create(name: "Super")).id)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       visit photos_path

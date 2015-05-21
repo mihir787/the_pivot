@@ -14,7 +14,7 @@
     </tr>
   <% @order.order_photos.each do |order_photo| %>
     <tr>
-      <td><%= link_to  "#{order_photo.photo.title}", photo_path(order_photo.photo.id) %></td>
+      <td><%= link_to  "#{order_photo.photo.title}", store_photo_path(order_photo.store, order_photo.photo.id) %></td>
       <td><%= number_to_currency(order_photo.photo.price/100.00) %></td>
     </tr>
   <% end %>

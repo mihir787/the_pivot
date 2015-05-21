@@ -1,0 +1,16 @@
+<h1><%= link_to @photo.store.name, store_photos_path(current_store) %></h1>
+<div class="row">
+  <div class="col-lg-6">
+  <%= image_tag @photo.image %>
+  </div>
+  <div class="col-lg-6">
+    <div class="thumbnail">
+      <div class="caption">
+        <h2><%= @photo.title %></h2>
+        <p><%= @photo.description %></p>
+        <p><%= number_to_currency(@photo.price.to_f / 100.00) %></p>
+        <%= button_to "Add To Cart", checkout_path(photo_id: @photo.id), method: :post %>
+      </div>
+    </div>
+  </div>
+</div>
