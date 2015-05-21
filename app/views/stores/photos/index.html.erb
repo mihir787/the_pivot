@@ -1,9 +1,23 @@
-<h1>Welcome to <%= current_store.name %></h1> 
-<% @photos.each do |photo| %>
-  <div class="col-lg-4 col-md-6 col-sm-6 display_photos">
-    <%= link_to image_tag(photo.image), store_photo_path(current_store, photo) %><br>
-    <ul>
-      <li><%= link_to photo.title, store_photo_path(current_store, photo) %></li>
-    </ul>
+<div class="row">
+  <div class="store_info">
+    <div class="col-lg-2 col-lg-offset-1">
+      <%= image_tag(current_store.image) %>
+    </div>
+    <div class="col-lg-6">
+      <h2>Welcome to <%= current_store.name %></h2>
+    </div>
   </div>
-<% end %>
+</div>
+<div class="container">
+  <div class="row">
+  <h3>Photos</h3>
+  <% @photos.each do |photo| %>
+    <div class="col-lg-6 col-md-6 col-sm-6 display_photos">
+      <%= link_to image_tag(photo.image), store_photo_path(current_store, photo) %><br>
+      <ul>
+        <li><%= link_to photo.title, store_photo_path(current_store, photo) %></li>
+      </ul>
+    </div>
+  <% end %>
+  </div>
+</div>

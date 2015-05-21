@@ -3,8 +3,6 @@ FactoryGirl.define do
     title "photo name"
     description "yummy"
     price        5
-    store_id Store.create(name: "Super").id
-
 
     factory :photo_with_categories do
        after(:create) do |photo, evaluator|

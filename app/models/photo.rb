@@ -1,10 +1,7 @@
 class Photo < ActiveRecord::Base
-  has_attached_file :image, styles: {micro: '50x50',
-                                     thumb: '100x100',
+  has_attached_file :image, styles: {thumb: '100x100',
                                      small: '200x200',
-                                     medium: '300x300',
-                                     large: '500x500',
-                                     display: '1000x1000'
+                                     medium: '300x300'
                                    }, default_url: "fork_knife1.jpg"
 
   validates_attachment_content_type :image, content_type: ["image/jpg", "image/jpeg", "image/png"]

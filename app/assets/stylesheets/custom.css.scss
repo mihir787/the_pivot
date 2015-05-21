@@ -398,5 +398,35 @@ table td {
 }
 
 .display_photos img {
-  height: 300px !important;
+  max-width: 550px;
+}
+
+#footer {
+  background-color: white;
+  background: white;
+  opacity: .8;
+  color: #777;
+  z-index: 10000;
+  margin-top: 20px;
+  height: 50px;
+}
+
+.footer_text {
+  font-size: 14px;
+  text-align: center;
+}
+
+.store_home_page ul{
+  list-style: none;
+}
+.store_home_page img {
+  height: 350px;
+}
+
+.store_info img{
+  width: 200px;
+}
+
+.display_image img {
+  max-width: 800px;
 }
