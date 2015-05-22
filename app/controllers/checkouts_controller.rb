@@ -2,9 +2,16 @@ class CheckoutsController < ApplicationController
 
   def create
     photo = Photo.find(params[:photo_id])
-    if session[:cart].has_key?(photo.id.to_s)
-      flash[:notice] = "Looks like you already have that in your cart, would you like to checkout?"
-      redirect_to store_photo_path(photo.store, photo)
+    if !@cart.contents.empty?
+      if session[:cart].has_key?(photo.id.to_s)
+        flash[:notice] = "Looks like you already have that in your cart, would you like to checkout?"
+        redirect_to store_photo_path(photo.store, photo)
+      else
+        @cart.add_photo(photo.id)
+        session[:cart] = @cart.contents
+        flash[:notice] = "You now have #{photo.title} in your cart.  "
+        redirect_to root_path
+      end
     else
       @cart.add_photo(photo.id)
       session[:cart] = @cart.contents
