@@ -32,4 +32,8 @@ class ApplicationController < ActionController::Base
   def categories
     Category.all
   end
+
+  def current_store
+    @current_store ||= Store.find_by(slug: params[:store])
+  end
 end

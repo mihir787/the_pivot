@@ -1,3 +1,22 @@
+ /*-------------------------------------------------------
+General
+ ---------------------------------------------------------*/
+
+body {
+  padding-top: 0px;
+  font-family: monospace;
+  background-color: #E8E2BE !important;
+}
+
+h1 {
+  font-family: 'Playfair Display' !important;
+  color: black;
+}
+
+ /*-------------------------------------------------------
+Front Page
+ ---------------------------------------------------------*/
+
 .jumbotron{
   background: image-url("photo-camera-cropped.png") no-repeat center center fixed;
   background-size: cover;
@@ -13,48 +32,10 @@
   font-size: 3em !important;
 }
 
-body {
-  padding-top: 0px;
-  font-family: monospace;
-  background-color: #E8E2BE !important;
-}
-
-.navbar-brand{
-  font-family: 'Playfair Display' !important;
-  font-size: 30px !important;
-  color: black;
-}
-
-h1 {
-  font-family: 'Playfair Display' !important;
-  color: black;
-}
-
 .front-page-image {
-	padding-bottom: 10px;
-	text-align: center;
-	vertical-align: center;
-}
-
-.navbar {
-   background-color: white;
-   background: white;
-   opacity: .8;
-   color: #777;
-   z-index: 10000
-
-}
-
-.navbar li {
-  color: #000;
-}
-
-.nav.navbar-nav.navbar-right li a {
-    color: #777;
-}
-
-.nav.navbar-nav.navbar-left li a {
-    color: #777;
+  padding-bottom: 10px;
+  text-align: center;
+  vertical-align: center;
 }
 
 .jumbotron{
@@ -81,6 +62,41 @@ h1 {
     margin: auto;
     width:100%;
 }
+
+ /*-------------------------------------------------------
+Navbar
+ ---------------------------------------------------------*/
+
+.navbar-brand{
+  font-family: 'Playfair Display' !important;
+  font-size: 30px !important;
+  color: black;
+}
+
+.navbar {
+   background-color: white;
+   background: white;
+   opacity: .8;
+   color: #777;
+   z-index: 10000
+
+}
+
+.navbar li {
+  color: #000;
+}
+
+.nav.navbar-nav.navbar-right li a {
+    color: #777;
+}
+
+.nav.navbar-nav.navbar-left li a {
+    color: #777;
+}
+
+ /*-------------------------------------------------------
+Flashes
+ ---------------------------------------------------------*/
 
 #flash_notice {
   font-family: monospace;
@@ -152,6 +168,9 @@ h1 {
   background-color: red;
 }
 
+ /*-------------------------------------------------------
+Tables
+ ---------------------------------------------------------*/
 table td {
   font-family: monospace;
   border: 2px solid black;
@@ -363,8 +382,13 @@ table td {
   width: 300px;
   margin-left: 33%;
   opacity: 0.7;
+  padding: 20px;
   background-color: white;
-  text-align: center;
+  /*text-align: center;*/
+}
+
+.user-show ul{
+  list-style: none;
 }
 
 .user-order-list {

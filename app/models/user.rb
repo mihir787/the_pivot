@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
 
   has_many :orders, dependent: :destroy
+  has_many :photos, through: :orders
   validates :name, length: { in: 2..32 }
   validates :username, uniqueness: true
   validates :email, presence: true, uniqueness: true,
