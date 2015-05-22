@@ -18,6 +18,9 @@
     </tr>
   <% end %>
 </table>
+<% @order_photos.each do |photo| %>
+  <%= photo.photo.title %>
+<% end %>
 </div>
 </div>
 </ul>

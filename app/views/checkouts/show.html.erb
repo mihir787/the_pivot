@@ -9,8 +9,8 @@
     </tr>
     <tr>
   <% @photos.each do |photo| %>
-      <td><%= photo.title %></td>
-      <td><%= photo.store.name %></td>
+      <td><%= link_to photo.title, store_photo_path(photo.store, photo.id) %></td>
+      <td><%= link_to photo.store.name, store_photos_path(photo.store) %></td>
       <td><%= number_to_currency(photo.price.to_f/100.00) %></td>
       <td><%= button_to "Remove", checkout_remove_path(photo_id: photo.id)%></td>
     </tr>

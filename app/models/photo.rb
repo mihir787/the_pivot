@@ -16,25 +16,6 @@ class Photo < ActiveRecord::Base
   has_many :orders, through: :order_photos
   belongs_to :store
 
-  # scope :active, -> { where(status: true) }
-
-
-  # def show_status
-  #   if status == true
-  #     "active"
-  #   else
-  #     "retired"
-  #   end
-  # end
-  #
-  # def retired
-  #   status == false
-  # end
-  #
-  # def active
-  #   status == true
-  # end
-
   def unique_categories
     errors.add :base, "Photo already belongs to that category" if categories.each { |category| categories.include?(category) }
   end
@@ -42,12 +23,4 @@ class Photo < ActiveRecord::Base
   def empty_categories?
     params[:photo][:category_ids].reject(&:empty?).empty?
   end
-
-  # def modify_status(status_param)
-  #   if status_param == "false"
-  #     status = false
-  #   else
-  #     status = true
-  #   end
-  # end
 end
