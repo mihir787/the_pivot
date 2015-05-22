@@ -1,7 +1,7 @@
 class User::OrdersController < User::BaseController
   def index
     @orders = current_user.orders
-    @order_photos = current_user.order_photos
+    @photos = current_user.photos.uniq
   end
 
   def show

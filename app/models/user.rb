@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
 
   has_many :orders, dependent: :destroy
-  has_many :order_photos, through: :orders
+  has_many :photos, through: :orders
   validates :name, length: { in: 2..32 }
   validates :username, uniqueness: true
   validates :email, presence: true, uniqueness: true,
@@ -28,5 +28,9 @@ class User < ActiveRecord::Base
       user.save
     end
     user
+  end
+
+  def unique_photos
+    order_photos.uniq_by(&:photo_id)
   end
 end
