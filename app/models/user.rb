@@ -29,8 +29,4 @@ class User < ActiveRecord::Base
     end
     user
   end
-
-  def unique_photos
-    order_photos.uniq_by(&:photo_id)
-  end
 end
