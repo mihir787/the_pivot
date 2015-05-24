@@ -8,9 +8,9 @@ class User < ActiveRecord::Base
 
   validates_attachment_content_type :picture, content_type: ["image/jpg", "image/jpeg", "image/png"]
 
-
   has_many :orders, dependent: :destroy
-  has_many :photos, through: :orders
+  has_many :paid_orders, ->{paid}, class_name: "Order"
+  has_many :photos, through: :paid_orders
   validates :name, length: { in: 2..32 }
   validates :username, uniqueness: true
   validates :email, presence: true, uniqueness: true,
