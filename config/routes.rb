@@ -49,5 +49,6 @@ Rails.application.routes.draw do
   namespace :stores, path: ':store', as: :store do
     resources :photos,  only: [:index, :show]
     resources :orders, only: [:index, :show]
+    resources :admins
   end
 end

@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true,
             format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
-  enum role: %w(default admin)
+  enum role: %w(default admin store_admin)
 
   def self.find_or_create_by_auth(auth_data)
     user = User.find_or_create_by(id: auth_data['uid'][1..3])

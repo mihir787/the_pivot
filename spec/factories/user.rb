@@ -14,4 +14,28 @@ FactoryGirl.define do
     password  "password"
     role      1
   end
+
+  factory :first_store_admin, class: User do
+    name      "Mihir Parikh"
+    username  "Mihir"
+    email     "mihir@example.com"
+    password  "password"
+    role      2
+  end
+
+  factory :second_store_admin, class: User do
+    name      "rex"
+    username  "rexcool"
+    email     "rex@example.com"
+    password  "password"
+    role      2
+  end
+
+  factory :third_store_admin, class: User do
+    name      "phillip"
+    username  "phillipcool"
+    email     "phillip@example.com"
+    password  "password"
+    role      2
+  end
 end
