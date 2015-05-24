@@ -24,11 +24,11 @@ store3.photos.create(title: "Mount Doom", description: "Where are the eagles?! i
 store3.photos.create(title: "Minas Tirith", description: "When the Enemy began to take shape again, Minas Anor was renamed Minas Tirith, the 'Tower of Guard.' The city was also called The White City, as the courtyard in the front of the city's Citadel contained the White Tree, and was also known as the City of Kings because of its connection with the kings and stewards of Gondor (who ruled the kingdom of Gondor from the Citadel of the city).", price: 2000, image: open('app/assets/images/minas_tirith.jpg')).categories << Category.find(1)
 store3.photos.create(title: "Bag End", description: "Great journeys begin here", price: 8000, image: open('app/assets/images/bag_end.png')).categories << Category.find(1)
 
-Order.create!(user_id: 1, subtotal: 12000, status: 0).order_photos.create(photo_id: 1)
+Order.create!(user_id: 1, subtotal: 12000, status: 3).order_photos.create(photo_id: 1)
 Order.create!(user_id: 1, subtotal: 12000, status: 0).order_photos.create(photo_id: 1)
 Order.create(user_id: 1, subtotal: 12000, status: 0).order_photos.create(photo_id: 1)
 Order.create(user_id: 1, subtotal: 12000, status: 0).order_photos.create(photo_id: 1)
-Order.create(user_id: 1, subtotal: 12000, status: 0).order_photos.create(photo_id: 2)
+Order.create(user_id: 1, subtotal: 12000, status: 3).order_photos.create(photo_id: 2)
 Order.create(user_id: 2, subtotal: 12000, status: 0).order_photos.create(photo_id: 2)
 Order.create(user_id: 2, subtotal: 12000, status: 1).order_photos.create(photo_id: 2)
 Order.create(user_id: 2, subtotal: 12000, status: 1).order_photos.create(photo_id: 2)
