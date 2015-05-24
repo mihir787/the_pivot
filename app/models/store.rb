@@ -5,10 +5,11 @@ class Store < ActiveRecord::Base
                                    }, default_url: "fork_knife1.jpg"
 
   validates_attachment_content_type :image, content_type: ["image/jpg", "image/jpeg", "image/png"]
-  
+
   has_many :photos
   has_many :order_photos, through: :photos
   has_many :orders, through: :store_orders
+  has_many :users
 
   validates :name, presence: true, uniqueness: true
   validates :slug, presence: true, uniqueness: true
