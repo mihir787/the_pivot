@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   namespace :user do
     resources :orders, only: [:index, :show]
+    resources :downloads, only: :index
   end
 
   get "/login/twitter", to: "sessions#twitter"
