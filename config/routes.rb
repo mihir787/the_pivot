@@ -45,10 +45,11 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get "admin/dashboard", to: "admin/dashboard#show"
   get "/home", to: "home#index"
+  get ":store/admins/:id/dashboard", to: "stores/admins#show", as: "store_admins_dashboard"
 
   namespace :stores, path: ':store', as: :store do
     resources :photos,  only: [:index, :show]
     resources :orders, only: [:index, :show]
-    resources :admins
+    resources :admins, except: [:show]
   end
 end
