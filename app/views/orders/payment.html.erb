@@ -1,6 +1,6 @@
 <div class="payment">
 
-<h1>Would you like to pay now?</h1>
+<h1>Please enter your payment:</h1>
 
 <%= form_tag charges_path do %>
   <article>
@@ -14,7 +14,4 @@
           data-description="Checkout Totals"
           data-amount="<%= current_user.orders.first.subtotal %>"></script>
 <% end %>
-
-
-<%= button_to("No thanks, Ill pay later.", current_user, method: 'get') %>
 </div>

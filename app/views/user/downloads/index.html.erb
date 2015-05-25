@@ -1,0 +1,6 @@
+<h2>Download Purchased Photos</h2>
+<ul>
+  <% @photos.each do |photo| %>
+    <li><a href="<%= photo.image.url %>" download ><%= photo.title %></a></li>
+  <% end %>
+</ul>
