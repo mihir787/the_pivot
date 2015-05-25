@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   validates_attachment_content_type :picture, content_type: ["image/jpg", "image/jpeg", "image/png"]
 
+  belongs_to :store
   has_many :orders, dependent: :destroy
   has_many :paid_orders, ->{paid}, class_name: "Order"
   has_many :photos, through: :paid_orders
@@ -16,7 +17,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true,
             format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
-  enum role: %w(default admin)
+  enum role: %w(default admin store_admin)
 
   def self.find_or_create_by_auth(auth_data)
     user = User.find_or_create_by(id: auth_data['uid'][1..3])

@@ -1,5 +1,6 @@
 require 'factory_girl_rails'
 require 'simplecov'
+require 'capybara'
 
 RSpec.configure do |config|
 
@@ -46,4 +47,5 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 
   config.backtrace_exclusion_patterns << %r{/gems/}
+
 end

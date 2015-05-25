@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150521015840) do
+ActiveRecord::Schema.define(version: 20150524150354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,7 +102,10 @@ ActiveRecord::Schema.define(version: 20150521015840) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.integer  "store_id"
   end
+
+  add_index "users", ["store_id"], name: "index_users_on_store_id", using: :btree
 
   add_foreign_key "order_photos", "orders"
   add_foreign_key "order_photos", "photos"
@@ -111,4 +114,5 @@ ActiveRecord::Schema.define(version: 20150521015840) do
   add_foreign_key "photo_categories", "photos"
   add_foreign_key "store_orders", "orders"
   add_foreign_key "store_orders", "stores"
+  add_foreign_key "users", "stores"
 end
