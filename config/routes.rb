@@ -46,6 +46,8 @@ Rails.application.routes.draw do
   get "/home", to: "home#index"
   get ":store/admin/:id/dashboard", to: "stores/admin#show", as: "store_admin_dashboard"
 
+  resources :stores, path: ':store', as: :store
+
   namespace :stores, path: ':store', as: :store do
     resources :photos,  only: [:index, :show]
     resources :orders, only: [:index, :show]
