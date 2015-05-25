@@ -8,16 +8,11 @@ RSpec.describe "First store admin" do
   it "can view other store admins" do
     store.users << [first_store_admin, second_store_admin]
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(first_store_admin)
-    visit new_store_admin_path(store: store )
-
-    fill_in "Name", with: "steve"
-    fill_in "Email", with: "steve@admin.com"
-    fill_in "Username", with: "steve_admin"
-    click_link_or_button "Create Store Admin"
 
     visit store_admins_path(store: store)
+    page.all(:button, "Delete Store Admin").last.click
 
-    expect(page).to have_content("Admins List")
-    expect(page).to have_content("steve")
+    expect(page).to have_content("Store admin has been deleted.")
+    expect(page).not_to have_content("rex")
   end
 end

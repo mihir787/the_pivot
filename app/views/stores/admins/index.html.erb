@@ -3,10 +3,11 @@
   <% @users.each do |user| %>
     <div class="col-lg-3 col-md-4 col-sm-6">
       <%= image_tag user.picture.url(:thumb) %>
-      <ul>
-        <li><%= user.name %></li>
-        <li><%= user.username %></li>
-        <li><%= user.email %></li>
+      <ul class="userinfo">
+        <li class="name"><%= user.name %></li>
+        <li class="username"><%= user.username %></li>
+        <li class="email"><%= user.email %></li>
+        <div class="delete"><%= button_to "Delete Store Admin", store_admin_path(store: current_store, id: user), method: 'delete', confirm: 'Are you sure?' %></div>
       </ul>
     </div>
   <% end %>

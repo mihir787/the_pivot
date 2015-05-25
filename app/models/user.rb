@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   validates_attachment_content_type :picture, content_type: ["image/jpg", "image/jpeg", "image/png"]
 
+  belongs_to :store
   has_many :orders, dependent: :destroy
   has_many :paid_orders, ->{paid}, class_name: "Order"
   has_many :photos, through: :paid_orders

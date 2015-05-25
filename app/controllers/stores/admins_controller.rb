@@ -5,15 +5,15 @@ class Stores::AdminsController < Stores::StoresController
   end
 
   def create
-    if current_user == current_store.users.first
-      @user = current_store.users.new(user_params)
-      @user.role = 2
-      @user.save
+    @user = current_store.users.new(user_params)
+    @user.role = 2
+    if @user.save
+      UserNotifier.send_store_admin(@user).deliver_now
       flash[:message] = "New store admin has been created."
-      redirect_to store_admins_dashboard_path(id: current_user.id)
+      redirect_to store_admins_dashboard_path(id: current_user)
     else
-      flash[:error] = "You do not have proper admin credentials to perform this action."
-      redirect_to store_admins_dashboard_path(id: current_user.id)
+      flash[:error] = @user.errors.full_messages.join(", ")
+      redirect_to store_admins_dashboard_path(id: current_user)
     end
   end
 
@@ -22,11 +22,17 @@ class Stores::AdminsController < Stores::StoresController
   end
 
   def index
-    if current_user == current_store.users.first
-      @users = current_store.users
+    @users = current_store.users
+  end
+
+  def destroy
+    user = User.find(params[:id])
+    if user.destroy
+      flash[:message] = "Store admin has been deleted."
+      redirect_to store_admins_path(store: current_store)
     else
-      flash[:error] = "You do not have proper admin credentials to view this page."
-      redirect_to store_admins_dashboard_path(id: current_user.id)
+      flash[:error] = user.errors.full_messages
+      redirect_to store_admins_path(store: current_store)
     end
   end
 
