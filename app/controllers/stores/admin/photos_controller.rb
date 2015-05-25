@@ -1,6 +1,6 @@
-class Admin::PhotosController < Admin::BaseController
+class Stores::Admin::PhotosController < Stores::Admin::StoresController
   def index
-    @photos = Photo.all
+    @photos = current_store.photos
   end
 
   def show
@@ -13,9 +13,10 @@ class Admin::PhotosController < Admin::BaseController
 
   def create
     @photo = Photo.new(photo_params)
+    @photo.store_id = current_store.id
     if @photo.save
       flash[:notice] = "#{@photo.title} created!"
-      redirect_to admin_photo_path(@photo)
+      redirect_to store_admin_photos_path
     else
       flash[:error] = @photo.errors.full_messages.join(", ")
       render :new
@@ -30,11 +31,17 @@ class Admin::PhotosController < Admin::BaseController
     @photo = Photo.find(params[:id])
     if @photo.update(photo_params)
       flash[:notice] = "#{@photo.title} Updated"
-      redirect_to admin_photo_path(@photo)
+      redirect_to store_admin_photo_path(current_store, @photo)
     else
       flash[:error] = @photo.errors.full_messages.join(", ")
       render :edit
     end
+  end
+
+  def destroy
+    @photo = Photo.find(params[:id])
+    @photo.destroy
+    redirect_to store_admin_photos_path
   end
 
   private
@@ -44,6 +51,13 @@ class Admin::PhotosController < Admin::BaseController
                                  :description,
                                  :price,
                                  :status,
-                                 :image)
+                                 :image,
+                                 :category_ids, 
+                                 :store_id)
   end
 end
+
+
+
+
+  

@@ -33,11 +33,7 @@ RSpec.describe "Admin Photos" do
 
     it "can not change the photo title to an already existing title" do
       admin = create(:admin_user)
-      category = create(:category)
-      category1 = create(:category1)
-      category2 = create(:category2)
-      category3 = create(:category3)
-
+      
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
       visit admin_dashboard_path
@@ -48,8 +44,6 @@ RSpec.describe "Admin Photos" do
       fill_in "Photo title", with: "New Photo"
       fill_in "Photo description", with: "New Description"
       fill_in "Price", with: 500
-      page.check("curries")
-      page.check("breakfast")
       click_button "Submit Photo"
 
       visit admin_dashboard_path
@@ -63,8 +57,6 @@ RSpec.describe "Admin Photos" do
       fill_in "Photo title", with: "New Photo2"
       fill_in "Photo description", with: "New Description"
       fill_in "Price", with: 500
-      page.check("curries")
-      page.check("breakfast")
       click_button "Submit Photo"
 
       visit admin_photos_path

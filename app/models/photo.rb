@@ -10,17 +10,7 @@ class Photo < ActiveRecord::Base
   validates :description, presence: true
   validates :price, presence: true, numericality: { greater_than: 0 }
 
-  has_many :photo_categories
-  has_many :categories, through: :photo_categories
   has_many :order_photos
   has_many :orders, through: :order_photos
   belongs_to :store
-
-  def unique_categories
-    errors.add :base, "Photo already belongs to that category" if categories.each { |category| categories.include?(category) }
-  end
-
-  def empty_categories?
-    params[:photo][:category_ids].reject(&:empty?).empty?
-  end
 end

@@ -15,21 +15,10 @@ RSpec.describe "First store admin" do
     fill_in "Username", with: "steve_admin"
     click_link_or_button "Create Store Admin"
 
-    visit store_admins_path(store: store)
+    visit store_admin_index_path(store: store)
 
     expect(page).to have_content("Admins List")
     expect(page).to have_content("steve")
   end
 
-  # context "if not primary store admin" do
-  #   it "cannot view other store admins" do
-  #     store.users << [first_store_admin, second_store_admin]
-  #     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(second_store_admin)
-  #
-  #     visit store_admins_path(store: store)
-  #
-  #     expect(page).to have_content("You do not have proper admin credentials to view this page.")
-  #
-  #   end
-  # end
 end

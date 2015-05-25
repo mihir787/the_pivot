@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       elsif @user && @user.store_admin? && @user.authenticate(params[:session][:password])
         flash[:notice] = "Succsessfully Logged In As #{@user.username}"
         session[:user_id] = @user.id
-        redirect_to store_admins_dashboard_path(store: @user.store, id: @user)
+        redirect_to store_admin_dashboard_path(store: @user.store, id: @user)
       elsif @user && @user.authenticate(params[:session][:password])
         flash[:notice] = "Succsessfully Logged In As #{@user.username}"
         session[:user_id] = @user.id

@@ -9,16 +9,16 @@ class Order < ActiveRecord::Base
   validates :subtotal, presence: true
 
 
-  enum status: %w(ordered completed cancelled paid)
+  enum status: %w(pending paid cancelled)
 
   default_scope { order(created_at: :desc) }
 
-  def self.number_currently_ordered
-    ordered.count
+  def self.number_currently_pending
+    pending.count
   end
 
-  def self.number_currently_completed
-    completed.count
+  def self.number_currently_paid
+    paid.count
   end
 
   def self.number_currently_cancelled
@@ -42,7 +42,7 @@ class Order < ActiveRecord::Base
   end
 
   def show_status
-    if status == "ordered"
+    if status == "paid"
       status
     else
       "#{status} -  updated on: #{self.updated_at.strftime("%A, %d %b %Y %l:%M %p")}"
