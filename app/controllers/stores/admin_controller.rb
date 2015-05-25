@@ -28,10 +28,10 @@ class Stores::AdminController < Stores::StoresController
     user = User.find(params[:id])
     if user.destroy
       flash[:message] = "Store admin has been deleted."
-      redirect_to store_admin_path(store: current_store)
+      redirect_to store_admin_index_path(store: current_store)
     else
       flash[:error] = user.errors.full_messages
-      redirect_to store_admin_path(store: current_store)
+      redirect_to store_admin_index_path(store: current_store)
     end
   end
 

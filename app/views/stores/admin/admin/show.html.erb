@@ -6,7 +6,7 @@
         <%= link_to "Add Store Admins", new_store_admin_path(store: current_store) %>
       </p>
       <p>
-        <%= link_to "View All Store Admins", store_admin_path(store: current_store) %>
+        <%= link_to "View All Store Admins", store_admin_index_path(store: current_store) %>
       </p>
     <% end %>
     <p><%= link_to "All Photos", store_admin_photos_path %><br></p>
