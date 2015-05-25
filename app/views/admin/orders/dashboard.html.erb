@@ -1,23 +1,23 @@
 <h1>Order Dashboard</h1>
-  <div class="order-dashboard-page" >
+  <div>
 
-    <div class="admin_status_list">
+    <div>
       <h3>Order Summary</h3>
       <table>
         <tr>
-          <th>Ordered</th>
-          <th>Completed</th>
+          <th>Pending</th>
+          <th>Paid</th>
           <th>Canceled</th>
         </tr>
         <tr>
-          <td><%= @orders.number_currently_ordered %></td>
-          <td><%= @orders.number_currently_completed %></td>
+          <td><%= @orders.number_currently_pending %></td>
+          <td><%= @orders.number_currently_paid %></td>
           <td><%= @orders.number_currently_cancelled %></td>
         </tr>
       </table>
 
 
-<p><%= render "admin/orders/filter" %></p>
+    <p><%= render "admin/orders/filter" %></p>
     </div><br>
 
     <div class="admin_orders_list">
@@ -43,7 +43,6 @@
           <td><%= order.date_updated %></td>
           <td class="order_status"><%= order.status %></td>
           <td><%= link_to "Paid", admin_order_update_path({order_id: order.id, status: "paid"}), method: :post %>
-              <%= link_to "Completed", admin_order_update_path({order_id: order.id, status: "completed"}), method: "post" %>
               <%= link_to "Cancelled", admin_order_update_path({order_id: order.id, status: "cancelled"}), method: "post" %>
             </td>
         </tr>

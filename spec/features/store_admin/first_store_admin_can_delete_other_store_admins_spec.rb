@@ -9,7 +9,7 @@ RSpec.describe "First store admin" do
     store.users << [first_store_admin, second_store_admin]
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(first_store_admin)
 
-    visit store_admins_path(store: store)
+    visit store_admin_index_path(store: store)
     page.all(:button, "Delete Store Admin").last.click
 
     expect(page).to have_content("Store admin has been deleted.")

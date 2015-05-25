@@ -10,7 +10,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :photos, except: [:destroy]
-    resources :categories
   end
 
   namespace :user do
@@ -26,7 +25,6 @@ Rails.application.routes.draw do
   resource :checkout, only: [:create, :update]
 
   resources :orders, only: [:create]
-  resources :categories, only: [:show, :index]
 
   get "orders/payment", to: "orders#payment"
   get "admin/orders/dashboard", to: "admin/orders#dashboard"
@@ -46,11 +44,17 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get "admin/dashboard", to: "admin/dashboard#show"
   get "/home", to: "home#index"
-  get ":store/admins/:id/dashboard", to: "stores/admins#show", as: "store_admins_dashboard"
+  get ":store/admin/:id/dashboard", to: "stores/admin#show", as: "store_admin_dashboard"
+
+  resources :stores, path: ':store', as: :store
 
   namespace :stores, path: ':store', as: :store do
     resources :photos,  only: [:index, :show]
     resources :orders, only: [:index, :show]
-    resources :admins, except: [:show]
+    resources :admin, except: [:show]
+    namespace :admin do 
+      resources :photos
+      resources :orders, only: [:index, :show, :update]
+    end
   end
 end

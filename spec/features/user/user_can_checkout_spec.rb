@@ -22,11 +22,6 @@ RSpec.describe "user checkout" do
 
       expect(page).to have_content("photo1")
       expect(page).to have_content("Confirm Order")
-
-      click_button "Confirm Order"
-      expect(page).to have_content("Would you like to pay now?")
-      click_button "No thanks, Ill pay later."
-      expect(page).to have_content("Dashboard")
     end
 
     it "can not checkout without anything in cart" do

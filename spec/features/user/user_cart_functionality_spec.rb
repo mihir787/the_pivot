@@ -3,11 +3,6 @@ require "rails_helper"
 RSpec.describe "checkout" do
   context "as an authenticated user" do
     it "can add photos to the cart" do
-      category = create(:category)
-      category1 = create(:category1)
-      category2 = create(:category2)
-      category3 = create(:category3)
-
       store = Store.create(name: "Super")
       5.times do |x|
         create(:photo, title: "Photo#{x}", description: "Description #{x}", store_id: store.id)

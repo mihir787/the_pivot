@@ -1,0 +1,13 @@
+<div class="admin_photo_form">
+<h1>New Photo</h1>
+  <div class="form">
+  <%= form_for @photo, url: store_admin_photos_path do |f| %>
+    <div><%= f.text_field :title, placeholder: "Photo title"  %><br></div><br>
+    <div><%= f.text_field :description, placeholder: "Photo description" %><br></div><br>
+    <div><%= f.text_field :price, placeholder: "Price" %><br></div><br>
+    <div><%= f.label "Upload an Image"%><br></div><br>
+    <div><%= f.file_field :image %><br></div><br>
+    <div><%= f.submit "Submit Photo" %></div><br>
+  <% end %>
+  </div>
+</div>

@@ -4,8 +4,6 @@ class ApplicationController < ActionController::Base
 
 
   before_action :load_cart
-  before_action :categories
-  before_action :load_categories
   helper_method :current_user
   helper_method :logged_in?
   helper_method :current_store_admin?
@@ -28,14 +26,6 @@ class ApplicationController < ActionController::Base
 
   def load_cart
     @cart ||= Cart.new(session[:cart])
-  end
-
-  def load_categories
-    @categories ||= Category.all
-  end
-
-  def categories
-    Category.all
   end
 
   def current_store

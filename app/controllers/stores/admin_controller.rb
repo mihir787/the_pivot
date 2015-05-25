@@ -1,5 +1,10 @@
-class Stores::AdminsController < Stores::StoresController
+class Stores::AdminController < Stores::StoresController
+  before_action :first_store_admin, except: [:index, :show]
 
+  def index
+    @users = current_store.users
+  end
+  
   def new
     @user = User.new
   end
@@ -10,10 +15,10 @@ class Stores::AdminsController < Stores::StoresController
     if @user.save
       UserNotifier.send_store_admin(@user).deliver_now
       flash[:message] = "New store admin has been created."
-      redirect_to store_admins_dashboard_path(id: current_user)
+      redirect_to store_admin_dashboard_path(id: current_user)
     else
       flash[:error] = @user.errors.full_messages.join(", ")
-      redirect_to store_admins_dashboard_path(id: current_user)
+      redirect_to store_admin_dashboard_path(id: current_user)
     end
   end
 
@@ -21,18 +26,14 @@ class Stores::AdminsController < Stores::StoresController
     @user = User.find(params[:id])
   end
 
-  def index
-    @users = current_store.users
-  end
-
   def destroy
     user = User.find(params[:id])
     if user.destroy
       flash[:message] = "Store admin has been deleted."
-      redirect_to store_admins_path(store: current_store)
+      redirect_to store_admin_index_path(store: current_store)
     else
       flash[:error] = user.errors.full_messages
-      redirect_to store_admins_path(store: current_store)
+      redirect_to store_admin_index_path(store: current_store)
     end
   end
 

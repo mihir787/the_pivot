@@ -28,9 +28,9 @@ RSpec.describe "Admin" do
 
       visit admin_orders_dashboard_path
       #first(:link, 1).click
-      click_link("Completed")
+      click_link("Paid")
 
-      expect(page).to have_content("Current Status: completed")
+      expect(page).to have_content("Current Status: paid")
     end
   end
 end

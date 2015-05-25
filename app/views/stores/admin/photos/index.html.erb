@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+  <h3>Photos</h3>
+  <% @photos.each do |photo| %>
+    <div class="col-lg-4 col-md-6 col-sm-6 store_admin_photos">
+      <%= link_to image_tag(photo.image), store_admin_photo_path(current_store, photo) %><br>
+      <ul>
+        <li><%= link_to photo.title, store_admin_photo_path(current_store, photo) %></li>
+        <li><%= link_to "Delete", store_admin_photo_path(current_store, photo), method: "DELETE" %></li>
+      </ul>
+    </div>
+  <% end %>
+  </div>
+</div>

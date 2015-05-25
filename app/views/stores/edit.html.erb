@@ -1,0 +1,12 @@
+<div class="admin_photo_form">
+<h1>Edit Store</h1>
+<div class="form">
+  <%= form_for @store, url: store_path(@store), method: "PUT" do |f| %>
+    <div><%= f.text_field :name, placeholder: "Store Name"  %><br></div><br>
+    <div><%= f.text_field :description, placeholder: "Store description" %><br></div><br>
+    <div><%= f.label "Upload an Image"%><br></div><br>
+    <div><%= f.file_field :image %><br></div><br>
+    <div><%= f.submit "Update Photo" %></div><br>
+  <% end %>
+  </div>
+</div>
