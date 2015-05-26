@@ -38,8 +38,8 @@
           <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><%= link_to "Dashboard", store_admin_dashboard_path(store: current_user.store, id: current_user) %></li>
-            <li><%= link_to "All Photos", store_admin_photos_path %></li>
-            <li><%= link_to "Create Photo", new_store_admin_photo_path %></li>
+            <li><%= link_to "All Photos", store_admin_photos_path(current_user.store) %></li>
+            <li><%= link_to "Create Photo", new_store_admin_photo_path(current_user.store) %></li>
             <li><%= link_to "All Orders", admin_orders_dashboard_path %></li>
           </ul>
         </li>

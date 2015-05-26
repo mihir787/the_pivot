@@ -1,10 +1,10 @@
-  <div class="form">
+<div class="form">
   <%= form_for([:admin, @photo]) do |f| %>
     <div><%= f.text_field :title, placeholder: "Photo title"  %><br></div><br>
     <div><%= f.text_field :description, placeholder: "Photo description" %><br></div><br>
     <div><%= f.text_field :price, placeholder: "Price" %><br></div><br>
-  <div><%= f.label "Upload an Image"%><br></div><br>
-  <div><%= f.file_field :image %><br></div><br>
-  <div><%= f.submit "Submit Photo" %></div><br>
-<% end %>
-  </div>
+    <div><%= f.label "Upload an Image"%><br></div><br>
+    <div><%= f.file_field :image %><br></div><br>
+    <div><%= f.submit "Submit Photo" %></div><br>
+  <% end %>
+</div>

@@ -46,7 +46,8 @@ Rails.application.routes.draw do
   get "/home", to: "home#index"
   get ":store/admin/:id/dashboard", to: "stores/admin#show", as: "store_admin_dashboard"
 
-  resources :stores, path: ':store', as: :store
+  get ":id/edit", to: "stores#edit", as: :edit_store
+  put ":id", to: "stores#update", as: :store
 
   namespace :stores, path: ':store', as: :store do
     resources :photos,  only: [:index, :show]
