@@ -7,7 +7,7 @@
     <div class="col-lg-6 col-md-6 col-sm-6">
     <ul>
       <li><%= link_to "#{store.name}", store_photos_path(store: store.slug) %></li>
-      <li><%= link_to image_tag(store.image), store_photos_path(store: store.slug) %></li>
+      <li><%= link_to image_tag(store.image.url), store_photos_path(store: store.slug) %></li>
     </ul>
     </div>
   <% end %>

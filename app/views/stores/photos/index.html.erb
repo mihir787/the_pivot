@@ -13,7 +13,7 @@
   <h3>Photos</h3>
   <% @photos.each do |photo| %>
     <div class="col-lg-6 col-md-6 col-sm-6 display_photos">
-      <%= link_to image_tag(photo.image), store_photo_path(current_store, photo) %><br>
+      <%= link_to image_tag(photo.image.url), store_photo_path(current_store, photo) %><br>
       <ul>
         <li><%= link_to photo.title, store_photo_path(current_store, photo) %></li>
       </ul>
