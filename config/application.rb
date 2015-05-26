@@ -15,7 +15,6 @@ Bundler.require(*Rails.groups)
 module HipsterBytes
   class Application < Rails::Application
     config.active_record.raise_in_transactional_callbacks = true
-    config.exceptions_app = routes
     config.action_mailer.perform_deliveries = true
     config.action_mailer.delivery_method = :smtp
 
