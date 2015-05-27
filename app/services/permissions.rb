@@ -10,7 +10,6 @@ class Permissions
   def allow?(controller, action, store_id = nil)
     @controller = controller
     @action = action
-
     if user.platform_admin?
       platform_admin_permissions
     elsif user.store_admin?(store_id)
@@ -35,7 +34,7 @@ class Permissions
   def store_admin_permissions
     return true if controller == 'stores/admin'
     return true if controller == 'stores/admin/stores'
-    return true if controller == 'stores/admin/photos'
+    return true if controller == 'stores/admin/photos' && action.in?(%w(index show new create edit update destroy))
     return true if controller == 'stores'
     return true if controller == 'sessions'
     return true if controller == 'stores/photos' && action.in?(%w(index show))

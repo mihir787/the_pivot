@@ -46,9 +46,9 @@ class User < ActiveRecord::Base
     roles.exists?(name: 'platform_admin')
   end
 
-  def store_admin?(store_id = nil)
-    if store_id
-      roles.exists?(name: 'store_admin') && store.id == store_id.to_i
+  def store_admin?(store_name = nil)
+    if store_name
+      roles.exists?(name: 'store_admin') && store.slug == store_name
     else
       roles.exists?(name: 'store_admin')
     end
