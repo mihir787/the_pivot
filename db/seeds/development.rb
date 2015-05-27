@@ -1,14 +1,20 @@
+Role.create(name: "platform_admin")
+Role.create(name: "store_admin")
+Role.create(name: "registered_user")
+
 User.create(name: "Rachel Warbelow", email: "demo+rachel@jumpstartlab.com", password: "password")
 User.create(name: "Jeff Casimir", email: "demo+jeff@jumpstartlab.com", username: "j3", password: "password")
 User.create(name: "Jorge Talez", email: "demo+jorge@jumpstartlab.com", username: "novohispano", password: "password")
-User.create(name: "Josh Cheek", email: "demo+josh@jumpstartlab.com", username: "josh", password: "password", role: 1)
-User.create(name: "Admin Admin", email: "admin@example.com", username: "ADMIN", password: "password", role: 1)
+User.create(name: "Josh Cheek", email: "demo+josh@jumpstartlab.com", username: "josh", password: "password")
+User.create(name: "Admin Admin", email: "admin@example.com", username: "ADMIN", password: "password")
 
 store1 = Store.create(name: "Tess's fish shop")
 store2 = Store.create(name: "Mihir's wedding shop")
 store3 = Store.create(name: "Jack's landscape shop")
 
-User.create(name: "Store Admin", email: "store+admin@example.com", username: "Store Admin", password: "password", role: 2, store_id: 1)
+User.create(name: "Store Admin", email: "store+admin@example.com", username: "Store Admin", password: "password", store_id: 1).user_roles.create(role_id: 2)
+User.create(name: "Store Admin 2", email: "store+admin2@example.com", username: "Store Admin2", password: "password", store_id: 2).user_roles.create(role_id: 2)
+User.create(name: "Store Admin 3", email: "store+admin3@example.com", username: "Store Admin3", password: "password", store_id: 3).user_roles.create(role_id: 2)
 
 store1.photos.create(title: "Coral Reefs", description: "A beautiful coral reef", price: 12000)
 store1.photos.create(title: "Starfish", description: "Panko crusted - Head On - Deep fried prawns.")

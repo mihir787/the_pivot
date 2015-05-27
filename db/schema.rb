@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150525231805) do
+ActiveRecord::Schema.define(version: 20150527015503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,12 @@ ActiveRecord::Schema.define(version: 20150525231805) do
 
   add_index "photos", ["store_id"], name: "index_photos_on_store_id", using: :btree
 
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "store_orders", force: :cascade do |t|
     t.integer "store_id"
     t.integer "order_id"
@@ -91,14 +97,23 @@ ActiveRecord::Schema.define(version: 20150525231805) do
     t.string   "description"
   end
 
+  create_table "user_roles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_roles", ["role_id"], name: "index_user_roles_on_role_id", using: :btree
+  add_index "user_roles", ["user_id"], name: "index_user_roles_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.string   "username"
     t.string   "password_digest"
-    t.integer  "role",                 default: 0
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
@@ -115,5 +130,7 @@ ActiveRecord::Schema.define(version: 20150525231805) do
   add_foreign_key "photo_categories", "photos"
   add_foreign_key "store_orders", "orders"
   add_foreign_key "store_orders", "stores"
+  add_foreign_key "user_roles", "roles"
+  add_foreign_key "user_roles", "users"
   add_foreign_key "users", "stores"
 end

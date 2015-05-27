@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   has_many :orders, dependent: :destroy
   has_many :paid_orders, ->{paid}, class_name: "Order"
   has_many :photos, through: :paid_orders
+  has_many :user_roles
+  has_many :roles, through: :user_roles
   validates :name, length: { in: 2..32 }
   validates :username, uniqueness: true
   validates :email, presence: true, uniqueness: true,
@@ -28,8 +30,6 @@ class User < ActiveRecord::Base
 
  validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
 
-  enum role: %w(default admin store_admin)
-
   def self.find_or_create_by_auth(auth_data)
     user = User.find_or_create_by(id: auth_data['uid'][1..3])
     if user.name != auth_data["info"]["name"]
@@ -40,5 +40,21 @@ class User < ActiveRecord::Base
       user.save
     end
     user
+  end
+
+  def platform_admin?
+    roles.exists?(name: 'platform_admin')
+  end
+
+  def store_admin?(store_id = nil)
+    if store_id
+      roles.exists?(name: 'store_admin') && store.id == store_id.to_i
+    else
+      roles.exists?(name: 'store_admin')
+    end
+  end
+
+  def registered_user?
+    roles.exists?(name: 'registered_user')
   end
 end
