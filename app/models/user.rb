@@ -17,6 +17,17 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true,
             format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
+  has_attached_file :picture, styles: {thumb: '100x100>',
+                                     square: '200x200#',
+                                     medium: '300x300>'},
+                                     default_url: "Hipster_with_glasses.jpg",
+                                     storage: :s3,
+                                     bucket: ENV['bucket'],
+                                     s3_credentials: { access_key_id: ENV['access_key_id'],
+                                               secret_access_key: ENV['secret_access_key'] }
+
+ validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
+
   enum role: %w(default admin store_admin)
 
   def self.find_or_create_by_auth(auth_data)

@@ -19,6 +19,7 @@ gem 'friendly_id'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'figaro'
 gem 'omniauth'
+gem 'aws-sdk', '< 2.0'
 gem 'omniauth-twitter'
 
 group :development, :test do
