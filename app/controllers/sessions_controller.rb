@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         redirect_to user_path
     else
       @user = User.find_by(email: params[:session][:email])
-      if @user && @user.admin? && @user.authenticate(params[:session][:password])
+      if @user && @user.platform_admin? && @user.authenticate(params[:session][:password])
         flash[:notice] = "Succsessfully Logged In As #{@user.username}"
         session[:user_id] = @user.id
         redirect_to admin_dashboard_path
