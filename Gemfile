@@ -21,6 +21,7 @@ gem 'figaro'
 gem 'omniauth'
 gem 'aws-sdk', '< 2.0'
 gem 'omniauth-twitter'
+gem 'brakeman'
 
 group :development, :test do
   gem 'byebug'
