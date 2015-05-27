@@ -1,6 +1,5 @@
 class Stores::StoresController < ApplicationController
   helper_method :current_store
-  helper_method :first_store_admin
   before_action :store_not_found
 
   def current_store
@@ -9,10 +8,6 @@ class Stores::StoresController < ApplicationController
 
   def store_not_found
     redirect_to root_path unless current_store
-  end
-
-  def first_store_admin
-    redirect_to store_admin_dashboard_path(id: current_user) if current_user != current_store.users.first
   end
 
   def edit

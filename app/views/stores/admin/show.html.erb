@@ -1,15 +1,15 @@
 <h1>Store Admin Dashboard - Welcome <%= current_user.name %>!</h1>
-  <h3><%= image_tag current_user.picture.url(:small) %></h3>
-  <div class="admin-links">
-    <% if current_store.users.first == current_user %>
-      <p>
-        <%= link_to "Add Store Admins", new_store_admin_path %>
-      </p>
-      <p>
-        <%= link_to "View All Store Admins", controller: 'stores/admin', action: 'index' %>
-      </p>  
-    <% end %>
-    <p><%= link_to "All Photos", store_admin_photos_path %><br></p>
-    <p><%= link_to "Add New Photo", new_store_admin_photo_path %><br></p>
-    <p><%= link_to "Edit Store Info", edit_store_path(current_user.store) %></p>
-  </div>
+<h3><%= image_tag current_user.picture.url(:small) %></h3>
+<div class="admin-links">
+  <% if current_store.users.first == current_user %>
+    <p>
+      <%= link_to "Add Store Admins", new_store_admin_path %>
+    </p>
+    <p>
+      <%= link_to "View All Store Admins", controller: 'stores/admin', action: 'index' %>
+    </p>  
+  <% end %>
+  <p><%= link_to "All Photos", store_admin_photos_path %><br></p>
+  <p><%= link_to "Add New Photo", new_store_admin_photo_path %><br></p>
+  <p><%= link_to "Edit Store Info", edit_store_path(current_user.store) %></p>
+</div>

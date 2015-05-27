@@ -33,12 +33,12 @@ class Permissions
   end
 
   def store_admin_permissions
+    return true if controller == 'stores/admin'
     return true if controller == 'stores/admin/stores'
     return true if controller == 'stores/admin/photos'
-    return true if controller == 'photos'
-    return true if controller == 'orders'
     return true if controller == 'stores'
     return true if controller == 'sessions'
+    return true if controller == 'stores/photos' && action.in?(%w(index show))
   end
 
   def registered_user_permissions

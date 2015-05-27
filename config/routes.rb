@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get "admin/dashboard", to: "admin/dashboard#show"
   get "/home", to: "home#index"
-  get ":store/admin/:id/dashboard", to: "stores/admin#show", as: "store_admin_dashboard"
+  get ":store/admin/dashboard", to: "stores/admin#show", as: "store_admin_dashboard"
 
   get ":id/edit", to: "stores#edit", as: :edit_store
   put ":id", to: "stores#update", as: :store

@@ -1,6 +1,4 @@
 class Stores::AdminController < Stores::StoresController
-  before_action :first_store_admin, except: [:index, :show]
-
   def index
     @users = current_store.users
   end
@@ -23,7 +21,7 @@ class Stores::AdminController < Stores::StoresController
   end
 
   def show
-    @user = User.find(params[:id])
+
   end
 
   def destroy
