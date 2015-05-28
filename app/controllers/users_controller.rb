@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      @user.roles << Role.find_by(name: 'registered_user')
       session[:user_id] = @user.id
       UserNotifier.send_signup_email(@user).deliver
       flash[:message] = "User has been successfully created!"
@@ -53,7 +54,7 @@ class UsersController < ApplicationController
                                  :email,
                                  :password,
                                  :password_confirmation,
-                                 :picture
-                                )
+                                 :picture)
+
   end
 end
