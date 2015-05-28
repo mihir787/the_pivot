@@ -7,9 +7,9 @@
     <div class="row">
       <% @stores.each do |store| %>
       <div class="col-lg-6 col-md-6 col-sm-6">
-        <div class="photo_div">
+        <div class="photo_div_home_page">
           <div class="other_div">
-            <h4><%= link_to "#{store.name}", store_photos_path(store: store.slug) %></h4>
+            <h3><%= link_to "#{store.name}", store_photos_path(store: store.slug) %></h3>
             <%= link_to image_tag(store.image.url), store_photos_path(store: store.slug) %>
           </div>
         </div>

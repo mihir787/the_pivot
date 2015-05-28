@@ -9,7 +9,7 @@
         <h2><%= @photo.title %></h2>
         <p><%= @photo.description %></p>
         <p><%= number_to_currency(@photo.price.to_f / 100.00) %></p>
-        <%= button_to "Add To Cart", checkout_path(photo_id: @photo.id), method: :post %>
+        <%= button_to "Add To Cart", checkout_path(photo_id: @photo.id), method: :post, class: "btn_small" %>
       </div>
     </div>
   </div>
