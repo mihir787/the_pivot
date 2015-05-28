@@ -14,6 +14,13 @@ Rails.application.configure do
       :secret_access_key => ENV['secret_access_key']
     }
   }
+
+  ENV['SENDGRID_USERNAME'] = "mihir787"
+  ENV['SENDGRID_PASSWORD'] = "Rajdeep1"
+
+  ENV['PUBLISHABLE_KEY'] = "pk_test_VJRjNgTBKWeriKCTTtVruR9H"
+  ENV['SECRET_KEY'] = "sk_test_8TzF4YwvYFKc7YghxushllGQ"
+
   config.cache_classes = false
 
   # Do not eager load code on boot.

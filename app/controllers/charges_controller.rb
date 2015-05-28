@@ -4,26 +4,26 @@ class ChargesController < ApplicationController
   end
 
   def create
-    @amount = current_user.orders.first.subtotal
+   @amount = current_user.orders.first.subtotal
 
-    customer = Stripe::Customer.create(
-      :email => params[:stripeEmail],
-      :card  => params[:stripeToken]
-    )
+   customer = Stripe::Customer.create(
+     :email => params[:stripeEmail],
+     :card  => params[:stripeToken]
+   )
 
-    if Stripe::Charge.create(
-      :customer    => customer.id,
-      :amount      => @amount,
-      :description => 'Rails Stripe customer',
-      :currency    => 'usd' )
+   if Stripe::Charge.create(
+     :customer    => customer.id,
+     :amount      => @amount,
+     :description => 'Rails Stripe customer',
+     :currency    => 'usd' )
 
-        current_user.orders.first.paid!
-    end
+       current_user.orders.first.paid!
+   end
 
-      rescue Stripe::CardError => e
-      flash[:error] = e.message
-      redirect_to charges_path
-  end
+     rescue Stripe::CardError => e
+     flash[:error] = e.message
+     redirect_to charges_path
+ end
 
   private
 

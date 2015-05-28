@@ -16,12 +16,14 @@ Hi <%= @order.user.name %>!
   <tr>
     <td>Photo Name</td>
     <td>Photo Price</td>
+    <td>Photo Link</td>
     <td>Photo Subtotal</td>
   </tr>
-  <% @order.order_photos.each do |order_photo| %>
+  <% @order.photos.each do |photo| %>
   <tr>
-    <td><%= order_photo.photo.title %></td>
-    <td><%= number_to_currency(order_photo.photo.price / 100.00) %></td>
+    <td><%= photo.title %></td>
+    <td><%= number_to_currency(photo.price / 100.00) %></td>
+    <td><%= photo.image.url %></td>
   </tr>
   <% end %>
   <tr>

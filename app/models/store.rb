@@ -8,6 +8,7 @@ class Store < ActiveRecord::Base
 
   has_many :photos
   has_many :order_photos, through: :photos
+  has_many :store_orders
   has_many :orders, through: :store_orders
   has_many :users
 
