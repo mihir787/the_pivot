@@ -14,6 +14,7 @@ Rails.application.configure do
       :secret_access_key => ENV['secret_access_key']
     }
   }
+
   config.cache_classes = false
 
   # Do not eager load code on boot.

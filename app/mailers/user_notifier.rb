@@ -1,4 +1,4 @@
-class UserNotifier < ApplicationMailer
+class UserNotifier < ActionMailer::Base
   default from: "mihir787@gmail.com"
 
   def send_signup_email(user)
@@ -17,4 +17,13 @@ class UserNotifier < ApplicationMailer
     mail(to: @user.email,
          subject: "You have been added as a Store Admin for #{@user.store}")
   end
+
+
+  def order_to_store_admin(admin)
+    @admin = admin
+    mail(to: @admin.email,
+        subject: "A customer has purchased photos from your store")
+
+  end
+
 end

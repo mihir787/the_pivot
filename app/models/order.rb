@@ -1,6 +1,7 @@
 class Order < ActiveRecord::Base
   belongs_to :user
-  belongs_to :store
+  has_many :store_orders
+  has_many :stores, through: :store_orders
   has_many :order_photos
   has_many :photos, through: :order_photos
 

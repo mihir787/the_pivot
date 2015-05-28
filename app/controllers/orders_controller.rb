@@ -3,13 +3,18 @@ class OrdersController < ApplicationController
   #Pass that to a PORO - returns a hash where keys are store id, values are
   # checkout_name/id: { store1: { photo1 }}
   def create
-    order = Order.new(order_params)
-    if order.save
+    @order = Order.new(order_params)
+    if @order.save
       @cart.contents.each_pair do |photo_id, quantity|
-        order.order_photos.create(photo_id: photo_id.to_i, order_id: order.id)
+        store = Photo.find(photo_id.to_i).store
+        @order.order_photos.create(photo_id: photo_id.to_i, order_id: @order.id)
+        @order.stores << store
       end
-      order.order_photos.create()
-      UserNotifier.order_confirmation(Order.find(order.id)).deliver_now
+      UserNotifier.order_confirmation(@order).deliver_now
+      @order.stores.each do |store|
+        @admin = store.users.first
+        UserNotifier.order_to_store_admin(@admin).deliver_now
+      end
       flash[:notice] = "Order Successfully Placed"
       redirect_to orders_payment_path
     else
@@ -19,6 +24,7 @@ class OrdersController < ApplicationController
     @cart.clear
   end
 
+
   def payment
 
   end
@@ -26,6 +32,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:user_id, :subtotal, :photo_id)
+    params.require(:order).permit(:user_id, :subtotal, :photo_id, :status)
   end
 end

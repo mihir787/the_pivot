@@ -7,6 +7,7 @@ User.create(name: "Jeff Casimir", email: "demo+jeff@jumpstartlab.com", username:
 User.create(name: "Jorge Talez", email: "demo+jorge@jumpstartlab.com", username: "novohispano", password: "password").user_roles.create(role_id: 3)
 User.create(name: "Josh Cheek", email: "demo+josh@jumpstartlab.com", username: "josh", password: "password").user_roles.create(role_id: 1)
 User.create(name: "Admin Admin", email: "admin@example.com", username: "ADMIN", password: "password").user_roles.create(role_id: 1)
+User.create(name: "Mihir Parikh", email: "mihir787@gmail.com", password: "password").user_roles.create(role_id: 3)
 
 store1 = Store.create(name: "Tess's fish shop")
 store2 = Store.create(name: "Mihir's wedding shop")
