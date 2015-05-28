@@ -19,14 +19,11 @@ class UserNotifier < ActionMailer::Base
   end
 
 
-  def order_to_store_admin(stores)
-    stores.each do |store|
-      store.users.each do |user|
-        @user = user
-        mail(to: @user.email,
-             subject: "Someone has purchased photos from you")
-      end
-    end
+  def order_to_store_admin(admin)
+    @admin = admin
+    mail(to: @admin.email,
+        subject: "A customer has purchased photos from your store")
+
   end
 
 end
