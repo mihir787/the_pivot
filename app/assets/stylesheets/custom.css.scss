@@ -429,10 +429,6 @@ table td {
   margin-left: 180px;
 }
 
-.display_photos img {
-  max-width: 550px;
-}
-
 .store_admin_photos img {
   max-width: 300px;
 }
@@ -506,6 +502,7 @@ table td {
   border-style: none;
   width: 150px;
   text-align: center;
+  margin-top: 10px;
 }
 
 .btn_small:hover {
@@ -538,12 +535,26 @@ ul {
   margin-bottom: 20px !important;
   opacity: .9;
   background-color: #F4F0DE;
+  height: 600px;
+}
+
+.photo_div_home_page {
+  border: 2px solid black;
+  border-radius: 20px;
+  margin-bottom: 20px !important;
+  opacity: .9;
+  background-color: #F4F0DE;
+  height: 450px;
 }
 
 .other_div {
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 90%;
   padding-bottom: 20px;
   opacity: 1 !important;
+}
+
+.other_div img{
+  width: 100%;
 }

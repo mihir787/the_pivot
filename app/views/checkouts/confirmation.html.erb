@@ -20,5 +20,5 @@
       </tr>
     </tfoot>
   </table>
-  <%= button_to "Confirm Order", orders_path(order: { user_id: current_user.id, subtotal: @cart.total })%>
+  <%= button_to "Confirm Order", orders_path(order: { user_id: current_user.id, subtotal: @cart.total }), class: "btn_small" %>
 </div>

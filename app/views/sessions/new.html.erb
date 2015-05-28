@@ -5,10 +5,10 @@
   <%= form_for(:session, url: login_path) do |f| %>
   <div class="field"><%= f.text_field :email, placeholder: 'Email' %><br></div>
   <div class="field"><%= f.password_field :password, placeholder: 'Password' %><br></div>
-  <div class="submit"><%= f.submit 'Submit'%></div>
+  <div class="submit"><%= f.submit 'Submit', class: "btn_small"%></div>
   <% end %>
 </div>
 
   <div class="twitter-login">
-    <%= link_to "Login with Twitter", login_twitter_path %>
+    <%= link_to "Login with Twitter", login_twitter_path, class: "btn_small" %>
   </div>
