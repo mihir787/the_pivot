@@ -1,11 +1,13 @@
-<div class="user-show">
-
-<h1><%= "#{current_user.name} Dashboard" %></h1>
-<ul>
-<li><%= image_tag current_user.picture.url(:small) %></li>
-<li><%= button_to "Edit Profile", edit_user_path, method: :get %></li>
-<li><%= button_to "Delete", user_path, method: :delete %></li>
-
-<%= button_to "Order History", user_orders_path(user_id: current_user.id), method: :get %>
-</ul>
+<div class="container-fluid">
+  <h1><%= "#{current_user.name} Dashboard" %></h1>
+  <div class="row">
+    <div class="col-lg-6">
+      <ul>
+        <li><%= image_tag current_user.picture.url(:small)%></li>
+        <li><%= button_to "Edit Profile", edit_user_path, method: :get, class: "btn_small" %></li>
+        <li><%= button_to "Delete", user_path, method: :delete, class: "btn_small" %></li>
+        <%= button_to "Order History", user_orders_path(user_id: current_user.id), method: :get, class: "btn_small" %>
+      </ul>
+    </div>
+  </div>
 </div>

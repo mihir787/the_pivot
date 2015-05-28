@@ -1,26 +1,25 @@
-<h1>Order Details</h1>
+<div class="container">
+  <h1>Order Details</h1>
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
+      <h4>ordered: <%= @order.date_of_order(@order.created_at) %></h4>
+      <h4>Current Status: <%= @order.show_status %></h4>
 
-<div class="user-order-list">
-<div class="center_div">
-
-<h4>ordered: <%= @order.date_of_order(@order.created_at) %></h4>
-<h4>Current Status: <%= @order.show_status %></h4>
-
-<table id="first_table">
-    <tr>
-      <th>Photo</th>
-      <th>Price</th>
-      <th>Subtotal</th>
-    </tr>
-  <% @order.order_photos.each do |order_photo| %>
-    <tr>
-      <td><%= link_to  "#{order_photo.photo.title}", store_photo_path(order_photo.store, order_photo.photo.id) %></td>
-      <td><%= number_to_currency(order_photo.photo.price/100.00) %></td>
-    </tr>
-  <% end %>
-  <td>total</td>
-  <td><%= number_to_currency(@order.subtotal.to_f / 100.00) %></td>
-</table>
+      <table id="first_table">
+        <tr>
+          <th>Photo</th>
+          <th>Price</th>
+        </tr>
+        <% @order.order_photos.each do |order_photo| %>
+        <tr>
+          <td><%= link_to  "#{order_photo.photo.title}", store_photo_path(order_photo.store, order_photo.photo.id) %></td>
+          <td><%= number_to_currency(order_photo.photo.price/100.00) %></td>
+        </tr>
+        <% end %>
+        <td>total</td>
+        <td><%= number_to_currency(@order.subtotal.to_f / 100.00) %></td>
+      </table>
+    </div>
+  </div>
 </div>
-</div>
-</ul>
+

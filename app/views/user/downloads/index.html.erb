@@ -1,6 +1,12 @@
-<h2>Download Purchased Photos</h2>
-<ul>
-  <% @photos.each do |photo| %>
-    <li><a href="<%= photo.image.url %>" download ><%= photo.title %></a></li>
-  <% end %>
-</ul>
+<div class="container">
+  <h1>Download Purchased Photos</h1>
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
+      <ul>
+        <% @photos.each do |photo| %>
+          <li><a class="btn" href="<%= photo.image.url %>" download ><%= photo.title %></a></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
