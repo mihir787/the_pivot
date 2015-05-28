@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     if @order.save
-      @cart.contents.each_pair do |photo_id, quantity|
+      @cart.contents.keys.each do |photo_id|
         store = Photo.find(photo_id.to_i).store
         @order.order_photos.create(photo_id: photo_id.to_i, order_id: @order.id)
         @order.stores << store

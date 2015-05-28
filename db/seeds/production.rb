@@ -1,11 +1,11 @@
 class Seed
 
-  PICTURES = %w(bag_end wedding_ring wedding_dress flowers_wedding minas_tirith 
-                mount_doom_landscape galaxy2 galaxy3 jupiter balloonMoon1 
-                dallas_balloon hot_air_balloon new_york koala platapus puppies baby_animals 
+  PICTURES = %w(bag_end wedding_ring wedding_dress flowers_wedding minas_tirith
+                mount_doom_landscape galaxy2 galaxy3 jupiter balloonMoon1
+                dallas_balloon hot_air_balloon new_york koala platapus puppies baby_animals
                 beach1 beach2 beach3 saturn)
 
-  STORE_PHOTOS = %w(clown_fish_store minas_tirith balloonMoon1 dallas_balloon 
+  STORE_PHOTOS = %w(clown_fish_store minas_tirith balloonMoon1 dallas_balloon
                     hot_air_balloon new_york koala platapus puppies baby_animals)
 
   def call
@@ -31,9 +31,9 @@ class Seed
     User.create(name: "Rachel Warbelow", email: "demo+rachel@jumpstartlab.com", password: "password").user_roles.create(role_id: 2)
     User.create(name: "Jeff Casimir", email: "demo+jeff@jumpstartlab.com", username: "j3", password: "password").user_roles.create(role_id: 2)
     User.create(name: "Jorge Talez", email: "demo+jorge@jumpstartlab.com", username: "novohispano", password: "password").user_roles.create(role_id: 2)
-    User.create(name: "Store Admin", email: "store+admin@example.com", username: "Store Admin", password: "password", store_id: 1).user_roles.create(role_id: 1)
-    User.create(name: "Store Admin 2", email: "store+admin2@example.com", username: "Store Admin2", password: "password", store_id: 2).user_roles.create(role_id: 1)
-    User.create(name: "Store Admin 3", email: "store+admin3@example.com", username: "Store Admin3", password: "password", store_id: 3).user_roles.create(role_id: 1)
+    User.create(name: "Store Admin", email: "kashisme@msn.com", username: "Store Admin", password: "password", store_id: 1).user_roles.create(role_id: 1)
+    User.create(name: "Store Admin 2", email: "mihir787@gmail.com", username: "Store Admin2", password: "password", store_id: 2).user_roles.create(role_id: 1)
+    User.create(name: "Store Admin 3", email: "tracymcaruso@gmail.com", username: "Store Admin3", password: "password", store_id: 3).user_roles.create(role_id: 1)
   end
 
   def generate_orders
@@ -66,7 +66,7 @@ class Seed
   def generate_stores
     10.times do
       Store.create!(name: Faker::Company.name,
-                    description: Faker::Lorem.sentence, 
+                    description: Faker::Lorem.sentence,
                     image: File.open("#{Rails.root}/app/assets/images/#{STORE_PHOTOS.sample}.jpg")
                     )
     end
@@ -75,9 +75,9 @@ class Seed
   def generate_photos
     50.times do |i|
       picture = PICTURES.sample
-      photo = Photo.create(title: Faker::Commerce.product_name, 
-                           description: Faker::Lorem.sentence, 
-                           price: Faker::Commerce.price * 100, 
+      photo = Photo.create(title: Faker::Commerce.product_name,
+                           description: Faker::Lorem.sentence,
+                           price: Faker::Commerce.price * 100,
                            image: File.open("#{Rails.root}/app/assets/images/#{picture}.jpg"),
                            store_id: (1..10).to_a.sample
                            )
