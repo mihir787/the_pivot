@@ -22,6 +22,7 @@ gem 'omniauth'
 gem 'aws-sdk', '< 2.0'
 gem 'omniauth-twitter'
 gem 'brakeman'
+gem 'faker'
 
 group :development, :test do
   gem 'byebug'
