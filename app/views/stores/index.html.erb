@@ -1,14 +1,20 @@
 <div class="jumbotron">
   <h1>View Galleries and Purchase from Real Photographers</h1>
 </div>
-<h1>Browse the Stores</h1>
-<div class="store_home_page">
-  <% @stores.each do |store| %>
-    <div class="col-lg-6 col-md-6 col-sm-6">
-    <ul>
-      <li><%= link_to "#{store.name}", store_photos_path(store: store.slug) %></li>
-      <li><%= link_to image_tag(store.image.url), store_photos_path(store: store.slug) %></li>
-    </ul>
+<div class="container">
+  <h1>Browse the Stores</h1>
+  <div class="store_home_page">
+    <div class="row">
+      <% @stores.each do |store| %>
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="photo_div">
+          <div class="other_div">
+            <h4><%= link_to "#{store.name}", store_photos_path(store: store.slug) %></h4>
+            <%= link_to image_tag(store.image.url), store_photos_path(store: store.slug) %>
+          </div>
+        </div>
+      </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>
