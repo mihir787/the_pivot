@@ -1,47 +1,90 @@
-Role.create(name: "platform_admin")
-Role.create(name: "store_admin")
-Role.create(name: "registered_user")
+class Seed
 
-User.create(name: "Rachel Warbelow", email: "demo+rachel@jumpstartlab.com", password: "password").user_roles.create(role_id: 3)
-User.create(name: "Jeff Casimir", email: "demo+jeff@jumpstartlab.com", username: "j3", password: "password").user_roles.create(role_id: 3)
-User.create(name: "Jorge Talez", email: "demo+jorge@jumpstartlab.com", username: "novohispano", password: "password").user_roles.create(role_id: 3)
-User.create(name: "Josh Cheek", email: "demo+josh@jumpstartlab.com", username: "josh", password: "password").user_roles.create(role_id: 1)
-User.create(name: "Admin Admin", email: "admin@example.com", username: "ADMIN", password: "password").user_roles.create(role_id: 1)
+  PICTURES = %w(bag_end wedding_ring wedding_dress flowers_wedding minas_tirith 
+                mount_doom_landscape galaxy2 galaxy3 jupiter balloonMoon1 
+                dallas_balloon hot_air_balloon new_york koala platapus puppies baby_animals 
+                beach1 beach2 beach3 saturn)
 
-store1 = Store.create(name: "Tess's fish shop")
-store2 = Store.create(name: "Mihir's wedding shop")
-store3 = Store.create(name: "Jack's landscape shop")
+  STORE_PHOTOS = %w(clown_fish_store minas_tirith balloonMoon1 dallas_balloon 
+                    hot_air_balloon new_york koala platapus puppies baby_animals)
 
-User.create(name: "Store Admin", email: "store+admin@example.com", username: "Store Admin", password: "password", store_id: 1).user_roles.create(role_id: 2)
-User.create(name: "Store Admin 2", email: "store+admin2@example.com", username: "Store Admin2", password: "password", store_id: 2).user_roles.create(role_id: 2)
-User.create(name: "Store Admin 3", email: "store+admin3@example.com", username: "Store Admin3", password: "password", store_id: 3).user_roles.create(role_id: 2)
+  def call
+    generate_roles
+    puts "generated roles"
+    generate_stores
+    puts "generated stores"
+    generate_photos
+    puts "generated photos"
+    generate_default_user
+    puts "generated default user"
+    generate_orders
+    puts "generated orders"
+  end
 
-store1.photos.create(title: "Coral Reefs", description: "A beautiful coral reef", price: 12000)
-store1.photos.create(title: "Starfish", description: "Panko crusted - Head On - Deep fried prawns.")
-store1.photos.create(title: "Jellyfish", description: "Served with spicy soy-sauce and squid ink -O- the day.", price: 2000)
-store2.photos.create(title: "Wedding Dress on Stairs", description: "Bacon ipsum dolor amet corned beef salami jerky pork boudin kevin frankfurter brisket.", price: 5000)
-store2.photos.create(title: "Wedding Flowers", description: "Turducken swine ham venison boudin. Biltong ham swine porchetta meatloaf strip steak.", price: 7000)
-store2.photos.create(title: "Wedding Ring", description: "You don't think you should... But you should. And will", price: 1000)
-store3.photos.create(title: "Mount Doom", description: "Where are the eagles?! in this stunning photo", price: 5000)
-store3.photos.create(title: "Minas Tirith", description: "When the Enemy began to take shape again, Minas Anor was renamed Minas Tirith, the 'Tower of Guard.' The city was also called The White City, as the courtyard in the front of the city's Citadel contained the White Tree, and was also known as the City of Kings because of its connection with the kings and stewards of Gondor (who ruled the kingdom of Gondor from the Citadel of the city).", price: 2000)
-store3.photos.create(title: "Bag End", description: "Great journeys begin here", price: 8000)
+  def self.call
+    new.call
+  end
 
-Order.create!(user_id: 1, subtotal: 12000, status: 2).order_photos.create(photo_id: 1)
-Order.create!(user_id: 1, subtotal: 12000, status: 0).order_photos.create(photo_id: 1)
-Order.create(user_id: 1, subtotal: 12000, status: 1).order_photos.create(photo_id: 1)
-Order.create(user_id: 1, subtotal: 12000, status: 0).order_photos.create(photo_id: 1)
-Order.create(user_id: 1, subtotal: 12000, status: 1).order_photos.create(photo_id: 2)
-Order.create(user_id: 2, subtotal: 12000, status: 0).order_photos.create(photo_id: 2)
-Order.create(user_id: 2, subtotal: 12000, status: 1).order_photos.create(photo_id: 2)
-Order.create(user_id: 2, subtotal: 12000, status: 1).order_photos.create(photo_id: 2)
-Order.create(user_id: 2, subtotal: 12000, status: 1).order_photos.create(photo_id: 3)
-Order.create(user_id: 2, subtotal: 12000, status: 1).order_photos.create(photo_id: 3)
-Order.create(user_id: 3, subtotal: 12000, status: 2).order_photos.create(photo_id: 5)
-Order.create(user_id: 3, subtotal: 12000, status: 0).order_photos.create(photo_id: 6)
-Order.create(user_id: 1, subtotal: 12000, status: 0).order_photos.create(photo_id: 6)
-Order.create(user_id: 1, subtotal: 12000, status: 0).order_photos.create(photo_id: 6)
-Order.create(user_id: 4, subtotal: 12000, status: 0).order_photos.create(photo_id: 6)
-Order.create(user_id: 4, subtotal: 12000, status: 2).order_photos.create(photo_id: 7)
-Order.create(user_id: 4, subtotal: 12000, status: 1).order_photos.create(photo_id: 7)
-Order.create(user_id: 3, subtotal: 12000, status: 2).order_photos.create(photo_id: 8)
-Order.create(user_id: 3, subtotal: 12000, status: 2).order_photos.create(photo_id: 8)
+  private
+
+  def generate_default_user
+    User.create(name: "Rachel Warbelow", email: "demo+rachel@jumpstartlab.com", password: "password").user_roles.create(role_id: 2)
+    User.create(name: "Jeff Casimir", email: "demo+jeff@jumpstartlab.com", username: "j3", password: "password").user_roles.create(role_id: 2)
+    User.create(name: "Jorge Talez", email: "demo+jorge@jumpstartlab.com", username: "novohispano", password: "password").user_roles.create(role_id: 2)
+    User.create(name: "Store Admin", email: "store+admin@example.com", username: "Store Admin", password: "password", store_id: 1).user_roles.create(role_id: 1)
+    User.create(name: "Store Admin 2", email: "store+admin2@example.com", username: "Store Admin2", password: "password", store_id: 2).user_roles.create(role_id: 1)
+    User.create(name: "Store Admin 3", email: "store+admin3@example.com", username: "Store Admin3", password: "password", store_id: 3).user_roles.create(role_id: 1)
+  end
+
+  def generate_orders
+    Order.create!(user_id: 1, subtotal: 12000, status: 2).order_photos.create(photo_id: 1)
+    Order.create!(user_id: 1, subtotal: 12000, status: 0).order_photos.create(photo_id: 1)
+    Order.create(user_id: 1, subtotal: 12000, status: 1).order_photos.create(photo_id: 1)
+    Order.create(user_id: 1, subtotal: 12000, status: 0).order_photos.create(photo_id: 1)
+    Order.create(user_id: 1, subtotal: 12000, status: 1).order_photos.create(photo_id: 2)
+    Order.create(user_id: 2, subtotal: 12000, status: 0).order_photos.create(photo_id: 2)
+    Order.create(user_id: 2, subtotal: 12000, status: 1).order_photos.create(photo_id: 2)
+    Order.create(user_id: 2, subtotal: 12000, status: 1).order_photos.create(photo_id: 2)
+    Order.create(user_id: 2, subtotal: 12000, status: 1).order_photos.create(photo_id: 3)
+    Order.create(user_id: 2, subtotal: 12000, status: 1).order_photos.create(photo_id: 3)
+    Order.create(user_id: 3, subtotal: 12000, status: 2).order_photos.create(photo_id: 5)
+    Order.create(user_id: 3, subtotal: 12000, status: 0).order_photos.create(photo_id: 6)
+    Order.create(user_id: 1, subtotal: 12000, status: 0).order_photos.create(photo_id: 6)
+    Order.create(user_id: 1, subtotal: 12000, status: 0).order_photos.create(photo_id: 6)
+    Order.create(user_id: 2, subtotal: 12000, status: 0).order_photos.create(photo_id: 6)
+    Order.create(user_id: 1, subtotal: 12000, status: 2).order_photos.create(photo_id: 7)
+    Order.create(user_id: 3, subtotal: 12000, status: 1).order_photos.create(photo_id: 7)
+    Order.create(user_id: 3, subtotal: 12000, status: 2).order_photos.create(photo_id: 8)
+    Order.create(user_id: 3, subtotal: 12000, status: 2).order_photos.create(photo_id: 8)
+  end
+
+  def generate_roles
+    Role.create(name: "store_admin")
+    Role.create(name: "registered_user")
+  end
+
+  def generate_stores
+    10.times do
+      Store.create!(name: Faker::Company.name,
+                    description: Faker::Lorem.sentence, 
+                    image: File.open("#{Rails.root}/app/assets/images/#{STORE_PHOTOS.sample}.jpg")
+                    )
+    end
+  end
+
+  def generate_photos
+    50.times do |i|
+      picture = PICTURES.sample
+      photo = Photo.create(title: Faker::Commerce.product_name, 
+                           description: Faker::Lorem.sentence, 
+                           price: Faker::Commerce.price * 100, 
+                           image: File.open("#{Rails.root}/app/assets/images/#{picture}.jpg"),
+                           store_id: (1..10).to_a.sample
+                           )
+    end
+  end
+end
+
+Seed.call
+
+
