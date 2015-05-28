@@ -1,10 +1,18 @@
-<%= form_for(@user, url: user_path, html: {multipart: true}) do |f| %>
-  <div class="field"><p><%= f.text_field :name, placeholder: "Name" %></p></div><br>
-  <div class="field"><p><%= f.text_field :username, placeholder: "Username" %></p></div><br>
-  <div class="field"><p><%= f.text_field :email, placeholder: "Email" %></p></div><br>
-  <div class="field"><p><%= f.password_field :password, placeholder: "Password" %></p></div><br>
-  <div class="field"><p><%= f.password_field :password_confirmation, placeholder: "Password confirmation" %></p></div><br>
-  <div class="field"><p><%= f.label :picture, "Attach a Picture" %></p></div><br>
-  <div class="field"><p><%= f.file_field :picture %></p></div><br>
-  <div class="field"><p><%= f.submit %></p></div><br>
-<% end %>
+  <div class="row">
+    <div class="col-lg-5">
+      <div class="form">
+      <ul>
+        <%= form_for(@user, url: user_path, html: {multipart: true}) do |f| %>
+          <li><%= f.text_field :name, placeholder: "Name" %></li>
+          <li><%= f.text_field :username, placeholder: "Username" %></li>
+          <li><%= f.text_field :email, placeholder: "Email" %></li>
+          <li><%= f.password_field :password, placeholder: "Password" %></li>
+          <li><%= f.password_field :password_confirmation, placeholder: "Password confirmation" %></li>
+          <li><%= f.label :picture, "Attach a Picture" %></li>
+          <li><%= f.file_field :picture %></li>
+          <li><%= f.submit class: "btn_small" %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -12,7 +12,7 @@
       <td><%= link_to photo.title, store_photo_path(photo.store, photo.id) %></td>
       <td><%= link_to photo.store.name, store_photos_path(photo.store) %></td>
       <td><%= number_to_currency(photo.price.to_f/100.00) %></td>
-      <td><%= button_to "Remove", checkout_remove_path(photo_id: photo.id)%></td>
+      <td><%= button_to "Remove", checkout_remove_path(photo_id: photo.id), class: "btn_small" %></td>
     </tr>
   <% end %>
     <tfoot>
@@ -24,8 +24,8 @@
   </table>
 
   <% if current_user %>
-  <%= button_to "Checkout", checkout_confirmation_path, method: :get %>
+  <%= button_to "Checkout", checkout_confirmation_path, method: :get, class: "btn_small" %>
   <% else %>
-  <%= button_to "Checkout", new_user_path(origin: {destination: "checkout"}), method: :get %>
+  <%= button_to "Checkout", new_user_path(origin: {destination: "checkout"}), method: :get, class: "btn_small" %>
   <% end %>
 </div>
