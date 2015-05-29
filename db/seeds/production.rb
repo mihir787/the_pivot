@@ -33,7 +33,7 @@ class Seed
     User.create(name: "Jorge Talez", email: "demo+jorge@jumpstartlab.com", username: "novohispano", password: "password").user_roles.create(role_id: 2)
     User.create(name: "Store Admin", email: "kashisme@msn.com", username: "Store Admin", password: "password", store_id: 1).user_roles.create(role_id: 1)
     User.create(name: "Store Admin 2", email: "mihir787@gmail.com", username: "Store Admin2", password: "password", store_id: 2).user_roles.create(role_id: 1)
-    User.create(name: "Store Admin 3", email: "tracymcaruso@gmail.com", username: "Store Admin3", password: "password", store_id: 3).user_roles.create(role_id: 1)
+    User.create(name: "Store Admin 3", email: "tessjgriffin@gmail.com", username: "Store Admin3", password: "password", store_id: 3).user_roles.create(role_id: 1)
   end
 
   def generate_orders
